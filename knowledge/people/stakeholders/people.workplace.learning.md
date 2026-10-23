@@ -1,6 +1,6 @@
 # Sophie Laurent — head of a company academy
 
-Kind: stakeholder · Sector: workplace and corporate learning · Maturity: draft
+Kind: stakeholder · Sector: workplace and corporate learning · Maturity: draft · Layer: 1 Organisation, 2 Department
 
 ## Who she is
 

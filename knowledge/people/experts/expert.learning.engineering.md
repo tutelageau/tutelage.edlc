@@ -1,6 +1,6 @@
 # Prof. Lin Zhao — learning engineering and improvement science
 
-Kind: expert · Discipline: learning sciences, learning engineering, improvement science · Maturity: draft
+Kind: expert · Discipline: learning sciences, learning engineering, improvement science · Maturity: draft · Layer: 2 Department, 3 Team
 
 ## Standing
 

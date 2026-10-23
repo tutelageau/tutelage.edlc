@@ -1,6 +1,6 @@
 # Mick Rawlins — trainer and assessor
 
-Kind: stakeholder · Sector: vocational education and training · Maturity: draft
+Kind: stakeholder · Sector: vocational education and training · Maturity: draft · Layer: 4 Project
 
 ## Who he is
 

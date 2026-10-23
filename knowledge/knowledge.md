@@ -8,6 +8,7 @@ What we know that is not the model itself. The model lives on the site (`site/`)
 | `people/stakeholders/` | People the EDLC is for; read by the `stakeholder` agent |
 | `people/experts/` | Disciplines that hold us to account; read by the `expert` agent |
 | `sources/sources.md` | Every outside source, with its verification status |
+| `research/` | Discover records: what the researcher found for a piece of work, with sources and disagreements carried |
 | `panels/` | One record per panel review, with findings and their dispositions |
 | `sessions/` | One close note per working session |
 

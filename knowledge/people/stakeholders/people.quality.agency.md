@@ -1,6 +1,6 @@
 # Ruth Harlow — external audit lead
 
-Kind: stakeholder · Sector: quality assurance · Maturity: draft
+Kind: stakeholder · Sector: quality assurance · Maturity: draft · Layer: 0 System
 
 ## Who she is
 

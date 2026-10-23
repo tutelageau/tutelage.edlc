@@ -1,6 +1,6 @@
 # Dr Naomi Clarke — learning analytics ethics and privacy
 
-Kind: expert · Discipline: ethics of learning analytics, privacy · Maturity: draft
+Kind: expert · Discipline: ethics of learning analytics, privacy · Maturity: draft · Layer: 1 Organisation
 
 ## Standing
 

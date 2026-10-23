@@ -1,6 +1,6 @@
 # Sam Whitford — accessibility and Universal Design for Learning
 
-Kind: expert · Discipline: digital accessibility, Universal Design for Learning · Maturity: draft
+Kind: expert · Discipline: digital accessibility, Universal Design for Learning · Maturity: draft · Layer: all (cross-layer)
 
 ## Standing
 

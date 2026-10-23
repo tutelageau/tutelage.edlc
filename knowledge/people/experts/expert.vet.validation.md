@@ -1,6 +1,6 @@
 # Carlos Mendes — VET compliance and assessment validation
 
-Kind: expert · Discipline: Australian VET regulation and assessment validation · Maturity: draft
+Kind: expert · Discipline: Australian VET regulation and assessment validation · Maturity: draft · Layer: 0 System, 1 Organisation
 
 ## Standing
 

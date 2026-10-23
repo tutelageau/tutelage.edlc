@@ -1,6 +1,6 @@
 # Teresa Nguyen — compliance and quality manager
 
-Kind: stakeholder · Sector: vocational education and training · Maturity: draft
+Kind: stakeholder · Sector: vocational education and training · Maturity: draft · Layer: 1 Organisation
 
 ## Who she is
 

@@ -1,6 +1,6 @@
 # Tom Becker — software delivery practice
 
-Kind: expert · Discipline: software engineering, delivery and operations · Maturity: draft
+Kind: expert · Discipline: software engineering, delivery and operations · Maturity: draft · Layer: 3 Team, 4 Project
 
 ## Standing
 

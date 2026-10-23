@@ -23,7 +23,14 @@ Three to six readers. Always at least two stakeholders and two experts. Starting
 | Practices, guardrails | quality.manager, learner, quality.agency | ethics.privacy, instructional.design |
 | The paper | course.coordinator, quality.agency | learning.engineering, instructional.design, software.lifecycle, vet.validation |
 | `/inspiration/` | course.coordinator, workplace.learning | software.lifecycle, instructional.design |
-| Home, contribute, a whole release | provider.owner, independent.creator, learner, quality.manager | accessibility, + the expert nearest to what changed |
+| Home, contribute, a whole release | provider.owner, independent.creator, learner, quality.manager | accessibility, content.design, + the expert nearest to what changed |
+| Navigation, page templates, the story (ED-09) | trainer, school.teacher, independent.creator | content.design, accessibility |
+| A sector page: schools | school.teacher, school.curriculum.leader | school.curriculum, + one other |
+| A sector page: higher education | course.coordinator, associate.dean, academic.developer | higher.education.quality, instructional.design |
+| A sector page: VET | quality.manager, trainer, resource.developer | vet.validation, training.packages |
+| A sector page: workplace and soft skills | workplace.learning, soft.skills.facilitator, workplace.learner | soft.skills, assessment |
+| Worked examples, starter repository (ED-12) | resource.developer, trainer, quality.manager | training.packages, vet.validation, assessment |
+| Anything about layers (H-7) | school.curriculum.leader, associate.dean, provider.owner, workplace.learning | the sector experts named on the page |
 
 Swap readers when the change's subject calls for it, and say why in the record.
 

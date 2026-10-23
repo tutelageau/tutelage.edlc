@@ -1,6 +1,6 @@
 # Graham Fitzroy — chief executive of a training provider
 
-Kind: stakeholder · Sector: vocational education and training · Maturity: draft
+Kind: stakeholder · Sector: vocational education and training · Maturity: draft · Layer: 1 Organisation
 
 ## Who he is
 

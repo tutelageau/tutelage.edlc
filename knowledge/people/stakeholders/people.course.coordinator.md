@@ -1,6 +1,6 @@
 # Dr Kwame Asante — unit coordinator, higher education
 
-Kind: stakeholder · Sector: higher education · Maturity: draft
+Kind: stakeholder · Sector: higher education · Maturity: draft · Layer: 3 Team, 4 Project
 
 ## Who he is
 
