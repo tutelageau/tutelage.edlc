@@ -6,7 +6,7 @@ eyebrow: Your sector
 lede: The stages are the same everywhere. Where the standard comes from, and how strict each gate is, depends on where you work.
 toc: true
 ---
-This page says, for five settings, where the learning standard comes from and which of that setting's own words the EDLC's words translate to. It also says which obligations in that setting's rules map to a stage, in the paper's own account (§8). Every fact about a sector links to its source; where nothing has been verified, the page says so rather than guessing.
+This page says, for five settings, where the learning standard comes from and which of that setting's own words the EDLC's words translate to. It also says which obligations in that setting's rules map to a stage. The paper maps two for vocational education (§8); the others are this site's reading. Every fact about a sector links to its source; where nothing has been verified, the page says so rather than guessing.
 
 The paper's own grounding is Australian vocational education. Whether the model transfers to the other four settings is untested: the paper's own [research agenda](/research/) lists testing it in other sectors.
 
@@ -14,11 +14,11 @@ A gate can be as light as a second reader. How formal it is depends on where you
 
 ## Schools
 
-This section covers the Australian Curriculum F–10. Senior secondary courses run on state standards and calendars this site has not yet read.
+This section covers the Australian Curriculum F–10. Senior secondary is not covered here.
 
 The standard comes from above the school. The Australian Curriculum version 9.0 was approved on 1 April 2022 and is reviewed on a six-year cycle. States and territories implement it on their own timelines ([ACARA, *Curriculum*](https://www.acara.edu.au/curriculum)).
 
-In New South Wales, NESA sets syllabuses for all schools in the state ([NSW Government, *NESA*](https://www.nsw.gov.au/education-and-training/nesa)). In Victoria, the VCAA's guidelines sit alongside the advice each school sector authority gives its schools ([VCAA, *Victorian Curriculum F–10*](https://www.vcaa.vic.edu.au/curriculum/foundation-10/Pages/default.aspx)).
+In New South Wales, NESA sets syllabuses for all schools in the state ([NSW Government, *NESA*](https://www.nsw.gov.au/education-and-training/nesa)). In Victoria, the VCAA's guidelines are supplementary to the advice each school sector authority gives its schools ([VCAA, *Victorian Curriculum F–10*](https://www.vcaa.vic.edu.au/curriculum/foundation-10/Pages/default.aspx)).
 
 So the standard a school designs against is national, state and sector-shaped at once. The state's timeline decides when a revised standard reaches your program. Your own terms and intakes set when a release goes out, which is the paper's rule on the calendar (§7).
 
@@ -42,17 +42,17 @@ Standard 1.5 requires that every training product on the organisation's scope of
 
 Who validates matters. Under Standard 1.5(2)(f) the outcome is "not solely determined by a person who has designed or delivered the training or assessment". That post-use **validation** maps to stage 10, [Improve](/stages/improve/).
 
-Both Standards end the same way: the outcomes of review (1.3) and of validation (1.5) must inform changes. That return path is the instrument's own.
+Both Standards end the same way: the outcomes of review (1.3) and of validation (1.5) must inform changes.
 
 Passing either step in the EDLC's sense is not the same as meeting the Standard, and nothing on this site is a compliance tool. The paper's own guardrail is that compliance is not quality: passing an audit shows conformance, not that learners thrived.
 
 ## Higher education
 
-Above the provider sits the *Higher Education Standards Framework (Threshold Standards) 2021*, read here as Compilation No. 2 of 14 July 2026 ([Federal Register of Legislation](https://www.legislation.gov.au/F2021L00488/latest/text)). This site has read its Standard 5.3, on monitoring, review and improvement, and claims nothing about its other Standards.
+Above the provider sits the *Higher Education Standards Framework (Threshold Standards) 2021*, read here as Compilation No. 2 of 14 July 2026 ([Federal Register of Legislation](https://www.legislation.gov.au/F2021L00488/2026-07-14/2026-07-14/text/original/epub/OEBPS/document_1/document_1.html)). This site has read its Standard 5.3, on monitoring, review and improvement, and claims nothing about its other Standards.
 
 Standard 5.3.1 sets the periodic review. It reads: "All accredited courses of study are subject to periodic (at least every seven years) comprehensive reviews that are overseen by peak academic governance processes and include external referencing or other benchmarking activities" ([compiled text](https://www.legislation.gov.au/F2021L00488/2026-07-14/2026-07-14/text/original/epub/OEBPS/document_1/document_1.html)). TEQSA's [*Guidance note: Academic monitoring, review and improvement*](https://www.teqsa.gov.au/guides-resources/resources/guidance-notes/guidance-note-academic-monitoring-review-and-improvement) explains that Standard; the obligation is the Standard's.
 
-That periodic comprehensive review maps to stage 10, [Improve](/stages/improve/), as a periodic gate across many cohorts rather than one per cohort. The per-cohort evidence the paper gathers at stages 9 and 10 resembles the interim monitoring Standard 5.3.3 names. The two are not the same step.
+That periodic comprehensive review maps, in this site's reading, to stage 10, [Improve](/stages/improve/), as a periodic gate across many cohorts rather than one per cohort. The per-cohort evidence the paper gathers at stages 9 and 10 resembles the interim monitoring Standard 5.3.3 names. The two are not the same step.
 
 In this sector's words: "accredited course of study", "peak academic governance", "external referencing".
 
@@ -68,7 +68,7 @@ Three published frameworks an organisation might adopt:
 
 - the *Core Skills for Work Developmental Framework* (2013): three skill clusters, ten skill areas, five stages of performance ([DEWR](https://www.dewr.gov.au/node/8374));
 - SFIA 9 (October 2024): seven levels of responsibility ([SFIA Foundation](https://sfia-online.org/en/sfia-9));
-- the *Australian Core Skills Framework* (2012), which the ACSF describes as five core skills ([ACER](https://people.acer.org/en/publications/australian-core-skills-framework-acsf/)).
+- the *Australian Core Skills Framework* (2012), which describes five core skills ([ACER](https://people.acer.org/en/publications/australian-core-skills-framework-acsf/)).
 
 In these frameworks' words: "skill cluster", "skill area", "stage of performance", "level of responsibility", "core skill".
 
@@ -91,7 +91,7 @@ One open question is yours in particular. The paper versions a program by cohort
 ## Not yet known
 
 - Which obligations school rules supply to the loop: what a state or a sector authority requires of a program before or after it is taught. No source read yet.
-- Senior secondary courses: the state standards and calendars Years 11 and 12 run on. Not read.
+- Senior secondary: what standards and calendars Years 11 and 12 run on. Not read.
 - Where course approval and annual monitoring sit in the loop for higher education, and where a unit's standard sits within the accredited course.
 - Workplace rules, such as laws governing safety training, and whether any supplies a gate. Not read.
 - How versioning works with rolling enrolment and no cohorts.

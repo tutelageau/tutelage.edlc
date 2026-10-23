@@ -248,4 +248,5 @@ td:first-child:not(:only-child) { min-width: 0; }
   .checklist li::before { border-color: var(--ink); }
   .checklist__disclaimer { border: 1px solid var(--ink); background: none; color: var(--ink); }
   .checklist__colophon { color: var(--ink); border-top-color: var(--ink); }
+  .checklist__more a::after { content: " (edlc.tutelage.au" attr(href) ")"; }
 }

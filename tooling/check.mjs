@@ -275,7 +275,7 @@ const builtText = (url) => {
 };
 const CHECKLIST_DISCLAIMER =
   "This is a list of questions to bring to a review. It is not a compliance tool, and ticking every question does not show that anything meets a standard or replaces pre-use review or validation.";
-const CHECKLIST_ATTRIBUTION = "Education Development Lifecycle (EDLC), edlc.tutelage.au, CC BY 4.0";
+const CHECKLIST_ATTRIBUTION = "Education Development Lifecycle (EDLC), Tutelage, edlc.tutelage.au, CC BY 4.0";
 const release = JSON.parse(readFileSync("site/_data/release.json", "utf8"));
 // Content design B: every stage page says which of its fields are the paper's and which the site's.
 const STAGE_PROVENANCE =

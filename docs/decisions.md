@@ -284,4 +284,5 @@ exact). (2) Accept 1, 2 and 4, and keep "validation" at stage 8 with the glossar
 (3) Defer to the paper's peer review.
 
 **If nobody decides.** The paper stays as written. The site's own pages say "pre-use review" and keep the two
-apart.
+apart. `/sectors/` already states, from the instrument, that review and validation outcomes must inform changes,
+so until item 1 is decided the page and §2.5 differ on this point.

@@ -25,6 +25,5 @@ Complaints, appeals and assessor disputes are treated as reports of possible def
 - Delivery data are signals to investigate, never automatic verdicts on content or people.
 - Collect for program improvement only, with clear purpose limits, minimisation and transparency to learners.
 - Record the delivery context, because the teacher is part of how a program performs.
-- No changes to assessment mid-cohort, unless they correct a safety, accuracy or compliance defect.
 
 See all six [guardrails](/guardrails/) and the practice of [observability](/practices/#observability).
