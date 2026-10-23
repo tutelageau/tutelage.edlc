@@ -9,7 +9,10 @@ lede: The terms the model depends on, in the sense this site uses them.
 | --- | --- |
 | Learning standard | The specification a program must meet: outcomes, required knowledge and skills, evidence, and assessment conditions |
 | Outcome descriptor | A specific, observable expectation within a standard; the smallest unit of traceability |
+| Map (stage 3) | Planning one program's coverage in its mapping matrix: which tasks and sessions address each descriptor. Not whole-of-curriculum mapping across a school or faculty |
 | Mapping matrix | The record linking each outcome descriptor to the assessment tasks and delivery sessions that address it |
+| Outline (stage 4) | The designers' blueprint: every deliverable as headings only. Not the course or unit outline given to learners |
+| Assessment first (stage 5) | Designing the assessment tasks and marking guides before the learning content. Not a diagnostic pre-assessment of learners |
 | Gate | A review point at the end of a stage that must be passed before effort is invested in the next |
 | Release | A named, versioned package of materials delivered to a specific cohort |
 | Cohort | The group of learners who receive one release of a program |

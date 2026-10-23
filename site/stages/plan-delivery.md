@@ -1,10 +1,10 @@
 ---
 layout: layouts/stage.njk
 stage: 7
-title: Orchestrate
-permalink: /stages/orchestrate/
+title: Plan delivery
+permalink: /stages/plan-delivery/
 ---
-Orchestrate reconciles the design with reality. Timetables, term lengths and delivery modes are hard constraints: a program that cannot be delivered in the time available is not finished, however good its materials are.
+Plan delivery reconciles the design with reality. Timetables, term lengths and delivery modes are hard constraints: a program that cannot be delivered in the time available is not finished, however good its materials are.
 
 ## What happens
 

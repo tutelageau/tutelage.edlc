@@ -1,6 +1,6 @@
 # Dr Helen Marsh — instructional design
 
-Kind: expert · Discipline: instructional design · Maturity: draft · Layer: 3 Team, 4 Project
+Kind: expert · Discipline: instructional design · Maturity: draft · Layer: 3 Team, 4 Program
 
 ## Standing
 
@@ -33,3 +33,4 @@ The page says what is borrowed, what is new, and stays honest about what is unte
 ## How this sheet grows
 
 - 2026-10-23: first drawn.
+- 2026-10-23: panel 2 (stage rename). Add a check for words that mean something else in a sector (unit outline, curriculum mapping, pre-assessment, scaffolding). Carry the lead that Branson et al. (1975) Phase V is "Control", with evaluation and revision (`S-BRANSON-1975`, unopened). Register Jacobs (1997) and Harden (2001) before curriculum mapping is discussed.

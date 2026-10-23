@@ -1,6 +1,6 @@
 # Dimitri Papadakis — training package structure and data
 
-Kind: expert · Discipline: VET training package structure, release and data · Maturity: draft · Layer: 0 System, 4 Project
+Kind: expert · Discipline: VET training package structure, release and data · Maturity: draft · Layer: 0 System, 4 Program
 
 ## Standing
 
@@ -28,7 +28,7 @@ assessment tool in the 2025 Outcome Standards (`S-NVR-2025`).
 - **CASE alignment.** Unit, element and criterion map to CFDocument, CFItem and CFAssociation, with a stable id
   per item (`S-1EDTECH-CASE-2025`).
 - **The licence question.** Unit text is said to be CC BY-ND 3.0 AU `[GK; S-TGA-COPY lead]`. If so, a reworded
-  criterion is a derivative. No design is fixed until the owner rules (H-8).
+  criterion is a derivative. ED-15 rules: codes and releases only until the licence is verified.
 
 ## Errors he catches
 

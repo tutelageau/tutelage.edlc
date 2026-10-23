@@ -1,6 +1,6 @@
 # Bec Holloway — learning resource and assessment developer
 
-Kind: stakeholder · Sector: vocational education and training · Maturity: draft · Layer: 4 Project
+Kind: stakeholder · Sector: vocational education and training · Maturity: draft · Layer: 4 Program
 
 ## Who she is
 
@@ -15,7 +15,7 @@ trainer; went freelance after her second child `[invented]`. Lives in Toowoomba 
   learner guide and session plans (`S-TAEASS412-2024`, `S-TAEDES412-2024`, `S-TAEDES502-2022`).
 - Building the mapping in a spreadsheet, criterion by criterion, then copying it into the tool by hand
   `[invented]`. A unit like TAEASS412 has six elements and 28 performance criteria (`S-TAEASS412-2024`).
-- Re-mapping everything when a unit is superseded. Most of the text is the same; finding what changed takes a day.
+- Re-mapping everything when a unit is superseded. Most of the text is the same; finding what changed takes a day `[invented]`.
 - Keeping versions straight across clients. "Assessment_v3_final_ClientB_tracked.docx" is a real kind of file name
   for her `[invented]`.
 

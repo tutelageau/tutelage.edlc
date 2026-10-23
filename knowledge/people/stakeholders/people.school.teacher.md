@@ -1,6 +1,6 @@
 # Lena Kowalski — secondary science teacher
 
-Kind: stakeholder · Sector: K-12 schooling · Maturity: draft · Layer: 3 Team, 4 Project
+Kind: stakeholder · Sector: K-12 schooling · Maturity: draft · Layer: 3 Team, 4 Program
 
 ## Who she is
 
@@ -46,3 +46,4 @@ Skims the first paragraph on her phone during a free period, then asks whether h
 ## How this sheet grows
 
 - 2026-10-23: first drawn.
+- 2026-10-23: panel 2 (stage rename). To add: her words for "release identifier", "mapping matrix" and "improvement log", or that she has none; whether she has been audited or had a unit externally reviewed (it decides how "auditor" lands); what a faculty handover looks like today (a shared-drive folder, a conversation).

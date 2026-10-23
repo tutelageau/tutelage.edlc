@@ -1,5 +1,10 @@
 // The ten EDLC stages: the one source for the loop figure, the stage table and every stage page.
-// Wording follows the public paper (§5). Change a stage here, never in a page that renders it.
+// Wording follows the public paper (§5); the names follow ED-13, which renamed stages 3 to 7,
+// as amended by ED-16 (stage 5 "Assessment first", stage 6 "Develop"). A renamed
+// stage keeps its 0.1.0 name and slug in `formerly`, which drives the redirect page at the old URL
+// (`site/redirects.njk`) and the "Called … in 0.1.0" line on the stage page. ED-13's interim names
+// (Assess first, Write) were never published, so they get no redirect. Change a stage here, never in
+// a page that renders it.
 
 const stages = [
   {
@@ -24,8 +29,9 @@ const stages = [
   },
   {
     n: 3,
-    slug: "architect",
-    name: "Architect",
+    slug: "map",
+    name: "Map",
+    formerly: { name: "Architect", slug: "architect" },
     question: "How will every outcome be taught and assessed?",
     purpose: "Plan how every outcome is assessed and delivered.",
     artefact: "Mapping matrix, assessment strategy",
@@ -34,8 +40,9 @@ const stages = [
   },
   {
     n: 4,
-    slug: "scaffold",
-    name: "Scaffold",
+    slug: "outline",
+    name: "Outline",
+    formerly: { name: "Scaffold", slug: "scaffold" },
     question: "Is the shape of the whole package right?",
     purpose: "Shape every deliverable as headings only.",
     artefact: "Skeletons of every deliverable",
@@ -44,8 +51,9 @@ const stages = [
   },
   {
     n: 5,
-    slug: "test-first",
-    name: "Test-first",
+    slug: "assessment-first",
+    name: "Assessment first",
+    formerly: { name: "Test-first", slug: "test-first" },
     question: "What evidence will show the learner can do it?",
     purpose: "Write the assessments and the context they sit in.",
     artefact: "Assessment tasks, marking guides, a simulated workplace or case study",
@@ -54,8 +62,9 @@ const stages = [
   },
   {
     n: 6,
-    slug: "build",
-    name: "Build",
+    slug: "develop",
+    name: "Develop",
+    formerly: { name: "Build", slug: "build" },
     question: "What does a learner need to succeed at those assessments?",
     purpose: "Write the learning content to the assessments.",
     artefact: "Learning materials and activities",
@@ -64,8 +73,9 @@ const stages = [
   },
   {
     n: 7,
-    slug: "orchestrate",
-    name: "Orchestrate",
+    slug: "plan-delivery",
+    name: "Plan delivery",
+    formerly: { name: "Orchestrate", slug: "orchestrate" },
     question: "Can this be delivered in the time and modes we have?",
     purpose: "Fit everything into the real timetable.",
     artefact: "Session or module plan",

@@ -20,10 +20,18 @@ A ruling is changed only by a later ruling that names it.
 | ED-10 | 2026-10-23 | Owner | The cast grows to cover four sectors: K-12 schooling, vocational education and training, higher education, and soft skills (workplace and professional learning). |
 | ED-11 | 2026-10-23 | Owner | The EDLC works toward a four-layer view of scope (organisation, department or pillar, team, project), named in education's own words. It is a working concept until the paper carries it. Site pages may describe it only as a proposal under development (see H-7). |
 | ED-12 | 2026-10-23 | Owner | The long-term aim is a public starter repository. It takes in benchmarks, first units of competency from training.gov.au, and runs gated development and feedback loops toward released versions of assessment tools, mapping matrices, learner guides and session plans. |
+| ED-13 | 2026-10-23 | Owner | H-1 option 1: the stages are renamed on the site and in the paper. Discover · Specify · **Map** (was Architect) · **Outline** (was Scaffold) · **Assess first** (was Test-first) · **Write** (was Build) · **Plan delivery** (was Orchestrate) · Validate and release · Deliver and observe · Improve. Software names survive only on `/inspiration/` and in the paper's §4.2 mapping, as the parallels they are. Old stage URLs keep working as redirects. The owner carries the rename into the source doc. |
+| ED-14 | 2026-10-23 | Owner | H-7: five layers of scope, amending ED-11. 0 System (who sets the benchmark) · 1 Organisation · 2 Department (for "pillar") · 3 Team · 4 Program, with "program" flagged as meaning different things by sector. The owner writes them into the paper; until then no site page states layers. |
+| ED-15 | 2026-10-23 | Owner | H-8: the starter repository is a separate public repository, started after the worked examples exist, and starts in VET. Until the training.gov.au licence is verified it stores unit codes and releases only, fetching text into the user's own copy. Its data shape aligns to 1EdTech CASE v1.1. It keeps "mapping matrix" and "learner guide". Two worked examples come first: TAEASS412 *Assess competence* and one light, unregulated program; the paper's §9.2 drops "anonymised". |
+| ED-16 | 2026-10-23 | Owner | Amends ED-13 on the 0.2.0 panel's advice: stage 5 is **Assessment first** (the stage designs assessment; "assess first" reads as assessing the learner first) and stage 6 is **Develop** (it covers activities, media and practicals as well as text, and is education's own word for the phase). Record: `knowledge/panels/2026-10-23.stage-rename.md`. |
+| ED-17 | 2026-10-23 | Lead | Carrying ED-13 into the paper also changes two phrases that named retired stages: stages 1 to 8 are "the design and release stages" (was "build"), and §4's return path goes "back into Specify or Map" (was "specification or architecture"). The owner carries both into the source doc. A changes log may name retired stages: `/changes/` joins `/inspiration/` as exempt from the retired-name check. |
+| ED-18 | 2026-10-23 | Owner | Commits to this repo use the owner's GitHub noreply address, never a personal one. Earlier commits keep theirs (no force-push). The check fails on an unpushed commit whose author is not a noreply address. |
 
 ## Open memos
 
 ### H-1 · Stage names: keep the paper's, or use education-native names?
+
+**Decided 2026-10-23 → ED-13.** Kept below as the record of the options.
 
 **What.** Four of the ten stage names come from software: Architect, Scaffold, Test-first, Build. ED-01 says
 education should speak its own words.
@@ -100,6 +108,8 @@ steps say "publish as an open resource under a Creative Commons licence".
 
 ### H-7 · The layers of scope: how many, and what they are called
 
+**Decided 2026-10-23 → ED-14.** Kept below as the record of the options.
+
 **What.** ED-11 sets out four layers: organisation, department or pillar, team, project. The sector research
 (`knowledge/research/2026-10-23.layers-by-sector.md`) finds that in schools, VET and higher education the
 benchmark is set by a body above the organisation: ACARA and the state authority, training packages and the 2025
@@ -146,6 +156,8 @@ size".
 **If nobody decides.** ED-11's four names stand in `knowledge/`; no site page states layers.
 
 ### H-8 · The starter repository: where, what it stores, and what it calls things
+
+**Decided 2026-10-23 → ED-15.** Kept below as the record of the options.
 
 **What.** ED-12 aims at a public starter repository that takes units of competency from training.gov.au and runs
 gated loops toward released assessment tools, mapping matrices, learner guides and session plans. **It starts in
@@ -202,3 +214,28 @@ a light one.
 3. **One real VET unit only.** *Costs:* non-VET readers see nothing of their own. *Gets:* fastest.
 
 **If nobody decides.** Nothing is built; the worked example proceeds with an invented unit.
+
+### H-9 · Further corrections to the paper from the 0.2.0 panel
+
+**What.** The paper is the owner's text, so these wait for a yes, like H-4. Record:
+`knowledge/panels/2026-10-23.stage-rename.md`.
+
+1. **ADDIE's feedback path (§2.1, §4).** §4 says "the feedback path from stage 10 is what distinguishes the EDLC
+   from ADDIE". The instructional design expert notes that the 1975 IPISD, which the paper names as ADDIE's
+   origin, ends in a phase that evaluates and revises, and Molenda (2003) describes ADDIE as an umbrella term.
+   *Suggested:* "from ADDIE as commonly practised" in §4; "summative evaluation arrives last" in §2.1. *Source
+   status:* a lead until someone opens the DTIC scans (`S-BRANSON-1975`) in a browser.
+2. **§2.2 carries the TDD claim too.** Add §2.2 ("Both anticipate test-driven development") to H-4 item 2.
+3. **"Release planning" for stage 7 (§4.2, §5.1; `/inspiration/`).** Release planning decides what goes in which
+   release and when, which is closer to stages 8 and 10. Fitting work into a fixed timebox is iteration planning.
+   *Suggested:* "Iteration planning", or "Iteration and capacity planning".
+4. **"Staging environments" (§4.2).** A staging environment is where a release is checked before it goes out,
+   which is nearer stage 8. *Suggested:* drop "and staging environments" from the fixtures row.
+5. **Continuous integration (abstract).** It is named among software's practices, but nothing in the model
+   corresponds to it. *Suggested:* drop it from the list, or say the EDLC has no counterpart.
+
+**Options.** (1) Accept all five (recommended; *costs* one editing pass alongside H-4; *gets* parallels a software
+reader finds exact and an ADDIE claim an instructional designer accepts; *undo* easy before wide circulation).
+(2) Accept 2 to 5 now and hold 1 until the IPISD scans are read. (3) Defer to the paper's peer review.
+
+**If nobody decides.** The paper stays as written. `/inspiration/` keeps its hedge on test-driven development.

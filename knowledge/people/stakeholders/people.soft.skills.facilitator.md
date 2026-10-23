@@ -1,6 +1,6 @@
 # Marco Bellini — leadership and communication facilitator
 
-Kind: stakeholder · Sector: workplace learning and soft skills · Maturity: draft · Layer: 3 Team, 4 Project
+Kind: stakeholder · Sector: workplace learning and soft skills · Maturity: draft · Layer: 3 Team, 4 Program
 
 ## Who he is
 
@@ -15,7 +15,7 @@ learning and development fifteen years ago `[invented]`. Works with one other co
   `[invented]`.
 - Choosing a capability framework to describe what the program builds, because the client asks for one. Nothing
   makes him use it; the company adopts it (`S-ACSF-2012`, `S-SFIA-9`; `[GK; S-CSFW-2013 lead]`).
-- Collecting feedback forms that say "great session" and tell him nothing about whether anyone leads differently.
+- Collecting feedback forms that say "great session" and tell him nothing about whether anyone leads differently. `[invented]`
 - Rewriting a module after every run because the last group was different `[invented]`.
 
 ## What he needs from the EDLC

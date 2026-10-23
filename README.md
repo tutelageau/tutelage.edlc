@@ -10,11 +10,11 @@ assessment before the content, gates every stage with a review, and routes what 
 
 1. **Discover** — who is this for, and what do they need?
 2. **Specify** — what exactly must a learner be able to do?
-3. **Architect** — how will every outcome be taught and assessed?
-4. **Scaffold** — is the shape of the whole package right?
-5. **Test-first** — what evidence will show the learner can do it?
-6. **Build** — what does a learner need to succeed at those assessments?
-7. **Orchestrate** — can this be delivered in the time and modes we have?
+3. **Map** — how will every outcome be taught and assessed?
+4. **Outline** — is the shape of the whole package right?
+5. **Assessment first** — what evidence will show the learner can do it?
+6. **Develop** — what does a learner need to succeed at those assessments?
+7. **Plan delivery** — can this be delivered in the time and modes we have?
 8. **Validate and release** — is it fit for use, and which version is going out?
 9. **Deliver and observe** — how is the program performing with real learners?
 10. **Improve** — what did we learn, and where does each change go?

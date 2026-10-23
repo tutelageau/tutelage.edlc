@@ -1,10 +1,12 @@
 ---
 layout: layouts/stage.njk
 stage: 4
-title: Scaffold
-permalink: /stages/scaffold/
+title: Outline
+permalink: /stages/outline/
 ---
-Scaffold shapes every deliverable as headings only: the learner guide, the assessment tool, the session plan, the trainer notes. Reviewers judge the shape of the whole package before anyone writes a paragraph.
+Outline shapes every deliverable as headings only: the learner guide, the assessment tool, the session plan, the trainer notes. Reviewers judge the shape of the whole package before anyone writes a paragraph.
+
+This is not the course or unit outline given to learners. The skeletons are the designers' blueprint.
 
 ## What happens
 

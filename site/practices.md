@@ -9,7 +9,7 @@ lede: Five practices run through every stage. They are what make the EDLC a life
 
 Every artefact links to the outcomes it serves: assessment tasks to outcome descriptors, content blocks to tasks, sessions to content. Traceability runs both ways. From any outcome you can find everything that teaches and assesses it; from any artefact you can find why it exists.
 
-This is what lets a change to one outcome be followed to every affected artefact. The mapping matrix built at [Architect](/stages/architect/) is its backbone.
+This is what lets a change to one outcome be followed to every affected artefact. The mapping matrix built at [Map](/stages/map/) is its backbone.
 
 <h2 id="versioning">Versioning</h2>
 

@@ -16,7 +16,7 @@ education `[invented]`. Supports course teams in two faculties, one at a time, o
   is the idea behind it (`S-BIGGS-1996`).
 - Building online units in the learning management system, then handing them over to academics who change them
   without telling anyone `[invented]`.
-- Seeing the same advice ignored in one faculty and taken up in another.
+- Seeing the same advice ignored in one faculty and taken up in another. `[invented]`
 
 ## What he needs from the EDLC
 

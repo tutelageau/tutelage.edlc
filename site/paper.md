@@ -77,11 +77,11 @@ This is a conceptual paper. The EDLC was developed through structured analogy, r
 
 ## 4. The EDLC framework
 
-The EDLC is a ten-stage closed loop. Stages 1 to 8 design and release a learning program; stages 9 and 10 operate it and feed what is learned back into design. Every build stage ends at a review gate.
+The EDLC is a ten-stage closed loop. Stages 1 to 8 design and release a learning program; stages 9 and 10 operate it and feed what is learned back into design. Every design and release stage ends at a review gate.
 
 {% include "partials/loop.njk" %}
 
-Figure 1 shows the loop. The feedback path from stage 10 is what distinguishes the EDLC from ADDIE: improvement is a routine route back into the specification or architecture, not a one-off evaluation.
+Figure 1 shows the loop. The feedback path from stage 10 is what distinguishes the EDLC from ADDIE: improvement is a routine route back into Specify or Map, not a one-off evaluation.
 
 ### 4.1 Design principles
 
@@ -123,30 +123,30 @@ Each stage has a purpose, a defining artefact, an exit gate, and a characteristi
 | --- | --- | --- | --- | --- | --- |
 | 1 | Discover | Establish the need and the learners | Needs analysis, learner profiles, delivery constraints | Need and cohort agreed | Building the right course for the wrong learners |
 | 2 | Specify | Ingest or author the learning standard | Structured standard | Standard complete and active | Designing against an outdated or misread standard |
-| 3 | Architect | Plan how every outcome is assessed and delivered | Mapping matrix, assessment strategy | Coverage plan approved | Gaps discovered only at audit |
-| 4 | Scaffold | Shape all deliverables as headings only | Skeletons of every deliverable | Structure approved | Rewriting finished content to fix its order |
-| 5 | Test-first | Write assessments and their context | Assessment tasks, marking guides, scenario | Compliance, pedagogy, and expert sign-off | Content that teaches what is never assessed, and the reverse |
-| 6 | Build | Write learning content to the assessments | Learning materials and activities | Accuracy and quality review | Inaccurate or unreadable materials |
-| 7 | Orchestrate | Fit everything into the real timetable | Session or module plan | Every outcome has a delivery session | A program that cannot be delivered in the time available |
+| 3 | Map | Plan how every outcome is assessed and delivered | Mapping matrix, assessment strategy | Coverage plan approved | Gaps discovered only at audit |
+| 4 | Outline | Shape all deliverables as headings only | Skeletons of every deliverable | Structure approved | Rewriting finished content to fix its order |
+| 5 | Assessment first | Write assessments and their context | Assessment tasks, marking guides, scenario | Compliance, pedagogy, and expert sign-off | Content that teaches what is never assessed, and the reverse |
+| 6 | Develop | Develop learning content to the assessments | Learning materials and activities | Accuracy and quality review | Inaccurate or unreadable materials |
+| 7 | Plan delivery | Fit everything into the real timetable | Session or module plan | Every outcome has a delivery session | A program that cannot be delivered in the time available |
 | 8 | Validate and release | Confirm fitness for use and fix a version | Validation record, release identifier | Released to a named cohort | Unvalidated tools reaching learners |
 | 9 | Deliver and observe | Run the program and collect evidence about it | Delivery telemetry, results, feedback, incidents | Cohort complete | Problems that are felt but never recorded |
 | 10 | Improve | Review, triage, and route changes | Improvement log, change requests | Changes accepted into the next release | The same flaw reaching cohort after cohort |
 
-### 5.1 Notes on the build stages (1 to 8)
+### 5.1 Notes on the design and release stages (1 to 8)
 
 **Discover** is often skipped when a standard is mandated externally, yet the same standard should yield different programs for different cohorts. A program for school-leavers needs more scaffolding than one for experienced workers. This is the EDLC's equivalent of user research, and it echoes Universal Design for Learning (CAST, 2018).
 
 **Specify** treats the standard as structured data, not a document. Decomposing a standard into outcomes, required knowledge, required skills, evidence requirements, assessment conditions, and grading levels makes every later stage traceable. The same structure can represent a regulated vocational unit, a university subject, or a course authored by an independent expert.
 
-**Architect** is the cheapest point to find errors. Reviewing a coverage plan costs far less than rewriting a finished assessment.
+**Map** is the cheapest point to find errors. Reviewing a coverage plan costs far less than rewriting a finished assessment.
 
-**Scaffold** lets reviewers judge the shape of the whole package before anyone writes a paragraph.
+**Outline** lets reviewers judge the shape of the whole package before anyone writes a paragraph.
 
-**Test-first** is the core of the model. Writing assessments before content ensures that learning materials exist to produce demonstrable outcomes. A realistic simulated workplace or case study acts like a test fixture: it gives every assessment a consistent, plausible context.
+**Assessment first** is the core of the model. Writing assessments before content ensures that learning materials exist to produce demonstrable outcomes. A realistic simulated workplace or case study acts like a test fixture: it gives every assessment a consistent, plausible context.
 
-**Build** is the most labour-intensive stage but the least risky, because structure and evidence are already settled.
+**Develop** is the most labour-intensive stage but the least risky, because structure and evidence are already settled.
 
-**Orchestrate** reconciles design with reality. Timetables, term lengths, and delivery modes are hard constraints, in the way that release windows constrain software.
+**Plan delivery** reconciles design with reality. Timetables, term lengths, and delivery modes are hard constraints, in the way that release windows constrain software.
 
 **Validate and release** turns the package into a named version, so that later evidence can be tied to exactly what was delivered.
 
@@ -224,7 +224,7 @@ The EDLC is a proposal, and its claims need testing. Each proposed study below t
 | # | Claim to test | Proposed study | Indicative measures |
 | --- | --- | --- | --- |
 | 1 | Early gates reduce rework | Compare programs built with and without gated review | Revision hours after each stage, defects found at validation |
-| 2 | Test-first design improves alignment | Expert alignment audits of assessment-first and content-first programs | Share of outcomes with adequate evidence; unassessed content |
+| 2 | Assessment first improves alignment | Expert alignment audits of assessment-first and content-first programs | Share of outcomes with adequate evidence; unassessed content |
 | 3 | Versioned releases enable attribution | Track outcome changes across successive releases of the same program | Result changes linked to specific design changes |
 | 4 | Observability surfaces defects earlier | Introduce item-level analytics in delivering programs | Time from defect to detection; defects found by data vs complaints |
 | 5 | Curriculum debt can be measured and predicts problems | Develop a debt index and test it against later incidents and audit findings | Correlation between index and incidents |
@@ -242,7 +242,7 @@ The EDLC is a proposal, and its claims need testing. Each proposed study below t
 
 - Peer review by instructional design, VET, and software engineering practitioners
 - Expand the related-work review, especially learning engineering and improvement science
-- Add a worked example: one anonymised unit taken through all ten stages
+- Add worked examples: one current unit of competency and one light, unregulated program, each taken through all ten stages
 - Pilot stages 9 and 10 with at least one delivering provider and report findings
 - Publish as an open resource under a Creative Commons licence and invite public comment
 
@@ -250,7 +250,7 @@ The EDLC is a proposal, and its claims need testing. Each proposed study below t
 
 Education already knows how to design learning well; what it lacks is the habit of running and improving a program as continuously as it was designed. The Education Development Lifecycle brings together established instructional design practice and the operational disciplines of modern software engineering in one ten-stage loop.
 
-Its build half formalises what experienced practitioners already do: specify, map, scaffold, write the assessment first, build, orchestrate, and validate. Its operate half proposes what few institutions yet do: release versions, observe how programs perform, treat complaints and appeals as defect reports, measure curriculum debt, and route what is learned back into design.
+Its design and release half formalises what experienced practitioners already do. Discover, specify, map, outline, design the assessment first, develop the materials, plan delivery, and validate. Its operate half proposes what few institutions yet do: release versions, observe how programs perform, treat complaints and appeals as defect reports, measure curriculum debt, and route what is learned back into design.
 
 The analogy has limits, because learners are people and not systems, and those limits are built into the model as guardrails. We offer the EDLC as a shared vocabulary and a starting point, and we invite practitioners, researchers, and regulators to test, challenge, and improve it.
 

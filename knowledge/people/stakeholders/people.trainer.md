@@ -1,6 +1,6 @@
 # Mick Rawlins — trainer and assessor
 
-Kind: stakeholder · Sector: vocational education and training · Maturity: draft · Layer: 4 Project
+Kind: stakeholder · Sector: vocational education and training · Maturity: draft · Layer: 4 Program
 
 ## Who he is
 
@@ -43,3 +43,4 @@ Looks for himself in it. If trainers only appear as data sources, he is gone.
 ## How this sheet grows
 
 - 2026-10-23: first drawn.
+- 2026-10-23: panel 2 (stage rename). To add: what he does when a fix cannot wait for the next release (changes the marking on the fly? who he tells); whether he has sat in a validation meeting; how he reads an old link. His own read: the "gone if trainers are only data sources" rule is too hard; the guardrail line kept him reading.

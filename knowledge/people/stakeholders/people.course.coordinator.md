@@ -1,6 +1,6 @@
 # Dr Kwame Asante — unit coordinator, higher education
 
-Kind: stakeholder · Sector: higher education · Maturity: draft · Layer: 3 Team, 4 Project
+Kind: stakeholder · Sector: higher education · Maturity: draft · Layer: 3 Team, 4 Program
 
 ## Who he is
 
@@ -42,3 +42,4 @@ Checks the related work and the method before the content. Then asks whether it 
 ## How this sheet grows
 
 - 2026-10-23: first drawn.
+- 2026-10-23: panel 2 (stage rename). To add: whether he has a learning designer or central unit to lean on; professional accreditation on top of the approval cycle; a tutor team of about a dozen markers (where assessor disputes bite); which learning management system; whether he would open "Where the idea came from"; how much of his promotion case rests on teaching evidence.

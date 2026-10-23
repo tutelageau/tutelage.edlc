@@ -20,4 +20,4 @@ Improve reviews what the cohort taught, triages it, and routes each change back 
 - Can each change be traced to the evidence that prompted it?
 - Is curriculum debt shrinking, steady or growing?
 
-Where a change should re-enter is still an [open question](/research/#open-questions): always at Architect, or at the earliest stage it affects?
+Where a change should re-enter is still an [open question](/research/#open-questions): always at Map, or at the earliest stage it affects?

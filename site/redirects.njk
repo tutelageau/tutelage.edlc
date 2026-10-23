@@ -1,0 +1,47 @@
+---js
+// One page at each stage URL that ED-13 retired (`/stages/<formerly.slug>/`), sending the reader on to
+// the stage's current page. GitHub Pages has no server redirects, so the page replaces itself with the
+// new URL by script (keeping any #anchor a deep link carried), falls back to a meta refresh without
+// script, and shows the brand, a link to the new page and a link to the lifecycle for anyone it does
+// not move. Its canonical names the new URL; it is not marked noindex, so the old URL's standing passes
+// to the new one. Driven by `formerly` in `_data/stages.js`; kept out of collections.
+const pagination = {
+  data: "stages",
+  size: 1,
+  alias: "s",
+  before: (stages) => stages.filter((s) => s.formerly),
+};
+const permalink = (data) => `/stages/${data.s.formerly.slug}/`;
+const eleventyExcludeFromCollections = true;
+---
+{%- set to = s.url | url -%}
+<!doctype html>
+<html lang="en-AU">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Moved: {{ s.formerly.name }} is now {{ s.name }} · {{ site.title }} ({{ site.short }})</title>
+  <link rel="canonical" href="{{ site.url }}{{ s.url }}">
+  <script>location.replace({{ to | dump | safe }} + location.hash);</script>
+  <meta http-equiv="refresh" content="0; url={{ to }}">
+  <meta name="color-scheme" content="light dark">
+  <link rel="icon" href="{{ '/assets/mark.svg' | url }}" type="image/svg+xml">
+  <link rel="stylesheet" href="{{ '/assets/site.css' | url }}">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="masthead">
+    <div class="wrap masthead__row">
+      <a class="brand" href="{{ '/' | url }}">
+        <img src="{{ '/assets/mark.svg' | url }}" alt="" width="24" height="24">
+        <span><strong>{{ site.short }}</strong> <span class="brand__long">Education Development Lifecycle</span></span>
+      </a>
+    </div>
+  </header>
+  <main id="main" class="wrap page">
+    <h1>Moved: {{ s.formerly.name }} is now {{ s.name }}</h1>
+    <p>Stage {{ s.n }} has a new name. Its page is now <a href="{{ to }}">{{ s.name }}</a>.</p>
+    <p>All ten stages are on <a href="{{ '/lifecycle/' | url }}">the lifecycle</a> page.</p>
+  </main>
+</body>
+</html>

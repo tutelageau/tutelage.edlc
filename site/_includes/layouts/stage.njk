@@ -9,6 +9,9 @@ layout: layouts/base.njk
     <p class="eyebrow">Stage {{ s.n }} of 10 · {{ "Design and release" if s.half == "build" else "Operate and improve" }}</p>
     <h1>{{ s.name }}</h1>
     <p class="lede">{{ s.question }}</p>
+    {%- if s.formerly %}
+    <p class="page__formerly">Called {{ s.formerly.name }} in 0.1.0.</p>
+    {%- endif %}
   </header>
 
   <dl class="facts">

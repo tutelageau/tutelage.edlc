@@ -1,6 +1,6 @@
 # The site's story and shape
 
-Status: **proposal, 2026-10-23, awaiting the owner.** Stages 2 and 3 (Specify, Architect) of the story-led redesign
+Status: **proposal, 2026-10-23, awaiting the owner.** Stages 2 and 3 (Specify, Map) of the story-led redesign
 (ED-09). Built on `knowledge/research/2026-10-23.framework-sites.md`; trace-checked by the `analyst` the same day.
 
 Most of this is presentation of what the paper already says. Three parts would **add to the model** and need the
@@ -8,7 +8,7 @@ owner's yes before they are built. Each is marked **[model addition]** where it 
 
 1. sector pages saying which gates a sector's rules already supply (the paper does this for VET only, §8);
 2. the quick check's questions and the reading list it returns;
-3. anything about layers of scope (H-7).
+3. anything about layers of scope (ED-14 settles the layers; what each owns is still to be written).
 
 ## The story in one line
 
@@ -44,7 +44,7 @@ need no source row unless a page cites them.
    already gives one failure per stage (§5).
 5. **A one-minute self-check that stores nothing** (DORA Quick Check). **[model addition]**
 6. **Routes in by sector and by role** (ABC Learning Design, Quality Matters).
-7. **Scale shown plainly** (Shape Up's "Adjust to your size"), pending H-7.
+7. **Scale shown plainly** (Shape Up's "Adjust to your size"), with the five layers once the paper carries them (ED-14).
 8. **A short canonical text**: the paper versioned, citable and licensed (Scrum Guide). H-2 decides the licence.
 9. **Evidence in the open**: each source with its status (DORA research, CAST).
 10. **A worked story** (Shape Up): material taken through all ten stages.
@@ -124,14 +124,13 @@ next on every spine page. Phone first, because a trainer reads between classes.
 
 | Version | Carries | Needs |
 | --- | --- | --- |
-| 0.1.1 | Researcher's source verdicts; ED-01 vocabulary sweep | Nothing from the owner |
-| 0.2.0 | New navigation, Start here, stage template, clickable loop, previous and next | Owner's yes to this brief; H-1 first is better, because the redesign puts the stage names everywhere |
-| 0.2.x | The quick check | Owner's yes to the model addition |
-| 0.3.0 | Sector pages, Resources, worked examples | Verified sources per sector. Gaps today: HESF beyond its headings, the AQF, TEQSA's review guidance, Core Skills for Work, the 2025 Training Package Organising Framework, NESA's programming rules. H-8 question 5 |
-| 0.4.0 | Scale and layers | H-7, and the paper carrying it |
+| 0.2.0 | Stage names in education's words (ED-13, ED-16); the researcher's source verdicts | Released through the gate, 2026-10-23 |
+| 0.3.0 | New navigation, Start here, stage template, clickable loop, previous and next. Drops the "Called … in 0.1.0" line from stage pages | Owner's yes to this brief |
+| 0.3.x | The quick check | Owner's yes to the model addition |
+| 0.4.0 | Sector pages, Resources, worked examples | Verified sources per sector. Gaps today: HESF beyond its headings, the AQF, TEQSA's review guidance, Core Skills for Work, the 2025 Training Package Organising Framework, NESA's programming rules. Worked examples per ED-15 |
+| 0.5.0 | Scale and layers | The paper carrying the five layers (ED-14) |
 
 ## Open for the owner
 
 - Yes, no or changes to this brief, and to each **[model addition]**.
-- H-1 (stage names) before 0.2.0.
-- H-7 and H-8 before 0.3.0 and 0.4.0.
+- The paper section on layers (ED-14), in the owner's words.

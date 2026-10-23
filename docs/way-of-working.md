@@ -10,11 +10,11 @@ evidence about the model: write it down in the session's close note.
 | --- | --- | --- | --- |
 | 1 Discover | Who is this page for? Name two or three readers from `knowledge/people/`. | Readers named | lead |
 | 2 Specify | What the page must say, traced to the paper section or a decision. What it must not say. | Brief written | lead, `analyst` |
-| 3 Architect | Where it sits: nav, links in and out, what it replaces. Nothing said twice. | Placement agreed | lead |
-| 4 Scaffold | Headings only, in the page file. | Shape read by `reviewer` | `editor` |
-| 5 Test-first | The **reader questions**: three to five questions each named reader must be able to answer after reading. Written into the commission before any prose. | Questions agreed | lead, `analyst` |
-| 6 Build | The prose, to the questions. | `pnpm verify` passes | `editor`, `site` |
-| 7 Orchestrate | Fits the release: version bump, changes row, nav. | Release notes drafted | lead |
+| 3 Map | Where it sits: nav, links in and out, what it replaces. Nothing said twice. | Placement agreed | lead |
+| 4 Outline | Headings only, in the page file. | Shape read by `reviewer` | `editor` |
+| 5 Assessment first | The **reader questions**: three to five questions each named reader must be able to answer after reading. Written into the commission before any prose. | Questions agreed | lead, `analyst` |
+| 6 Develop | The prose, to the questions. | `pnpm verify` passes | `editor`, `site` |
+| 7 Plan delivery | Fits the release: version bump, changes row, nav. | Release notes drafted | lead |
 | 8 Validate and release | The `release` skill: `reviewer`, the `panel`, `pnpm verify`, owner's go. | Panel holds; owner says go | lead |
 | 9 Deliver and observe | Issues, comments, what readers ask that the page did not answer. | — | lead |
 | 10 Improve | Triage into change requests in `knowledge/panels/` or as issues; re-enter at stage 2 or 5. | Changes queued for a release | lead, `analyst` |

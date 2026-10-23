@@ -9,7 +9,7 @@
   },
   "scripts": {
     "dev": "eleventy --serve",
-    "build": "eleventy",
+    "build": "node -e \"require('fs').rmSync('_site',{recursive:true,force:true})\" && eleventy",
     "check": "node tooling/check.mjs",
     "verify": "pnpm build && pnpm check"
   },

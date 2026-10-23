@@ -89,6 +89,7 @@ h2 { font-size: 1.45rem; margin: 2.2em 0 0.5em; }
 h3 { font-size: 1.1rem; margin: 1.8em 0 0.4em; }
 .display { font-size: clamp(2.5rem, 6.5vw, 4.5rem); font-weight: 680; line-height: 1.02; letter-spacing: -0.035em; margin: 0 0 20px; max-width: 16ch; }
 .lede { font-size: clamp(1.0625rem, 1.9vw, 1.3rem); line-height: 1.5; color: var(--label); max-width: 60ch; margin: 0; }
+.page__formerly { font-size: 0.875rem; color: var(--label); margin: 12px 0 0; }
 .eyebrow { font-size: 0.75rem; font-weight: 620; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent-text); margin: 0 0 12px; }
 code { font-family: var(--mono); font-size: 0.9em; background: var(--sunken); padding: 0.1em 0.35em; border-radius: 4px; }
 

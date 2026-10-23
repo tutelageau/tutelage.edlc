@@ -26,7 +26,7 @@ How the site reads. The `reviewer` judges every change against this file, not ag
 | delivery signals, evidence | telemetry, monitoring |
 | review, validation | code review, QA |
 
-The stage names are the paper's until `H-1` is decided. Software vocabulary belongs on `/inspiration/` and in
+The stage names are the ones in ED-13 (`site/_data/stages.js`). Software vocabulary belongs on `/inspiration/` and in
 the paper.
 
 ## Claims

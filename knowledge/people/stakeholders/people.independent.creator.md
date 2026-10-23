@@ -1,6 +1,6 @@
 # Jess Okoro — potter teaching online
 
-Kind: stakeholder · Sector: independent, self-directed courses · Maturity: draft · Layer: 1 Organisation, 4 Project
+Kind: stakeholder · Sector: independent, self-directed courses · Maturity: draft · Layer: 1 Organisation, 4 Program
 
 ## Who she is
 

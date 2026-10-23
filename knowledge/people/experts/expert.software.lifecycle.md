@@ -1,6 +1,6 @@
 # Tom Becker — software delivery practice
 
-Kind: expert · Discipline: software engineering, delivery and operations · Maturity: draft · Layer: 3 Team, 4 Project
+Kind: expert · Discipline: software engineering, delivery and operations · Maturity: draft · Layer: 3 Team, 4 Program
 
 ## Standing
 
@@ -32,3 +32,4 @@ A software engineer would find the parallels fair, and an educator would never n
 
 - 2026-10-23: first drawn.
 - 2026-10-23: panel 1. Add acceptance-test-first development and the V-model to the canon. Defer the word list to `docs/content.standards.md`.
+- 2026-10-23: panel 2 (stage rename). Add a check for rename leftovers: after a stage is renamed, read the prose for the old concept by description ("architecture", "orchestration"), not only by name. Carry the difference between release planning (scope and date of a release) and iteration or capacity planning (fitting work into a fixed timebox). `S-BECK-2002` and `S-FORSGREN-2018` are still from memory.

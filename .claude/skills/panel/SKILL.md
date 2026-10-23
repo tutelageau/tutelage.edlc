@@ -30,7 +30,7 @@ Three to six readers. Always at least two stakeholders and two experts. Starting
 | A sector page: VET | quality.manager, trainer, resource.developer | vet.validation, training.packages |
 | A sector page: workplace and soft skills | workplace.learning, soft.skills.facilitator, workplace.learner | soft.skills, assessment |
 | Worked examples, starter repository (ED-12) | resource.developer, trainer, quality.manager | training.packages, vet.validation, assessment |
-| Anything about layers (H-7) | school.curriculum.leader, associate.dean, provider.owner, workplace.learning | the sector experts named on the page |
+| Anything about layers (ED-14) | school.curriculum.leader, associate.dean, provider.owner, workplace.learning | the sector experts named on the page |
 
 Swap readers when the change's subject calls for it, and say why in the record.
 
