@@ -1,12 +1,27 @@
 ---
 layout: layouts/base.njk
 ---
+{#- An article. With `toc: true` in front matter, an "On this page" list of the page's h2s sits
+    under the header. -#}
 <article class="wrap page">
   <header class="page__head">
     {% if eyebrow %}<p class="eyebrow">{{ eyebrow }}</p>{% endif %}
     <h1>{{ title }}</h1>
     {% if lede %}<p class="lede">{{ lede }}</p>{% endif %}
   </header>
+  {%- if toc %}
+  {%- set headings = content | toc %}
+  {%- if headings.length %}
+  <nav class="toc" aria-labelledby="toc-title">
+    <p class="toc__title" id="toc-title">On this page</p>
+    <ul>
+      {%- for h in headings %}
+      <li><a href="#{{ h.id }}">{{ h.text }}</a></li>
+      {%- endfor %}
+    </ul>
+  </nav>
+  {%- endif %}
+  {%- endif %}
   <div class="prose">
     {{ content | safe }}
   </div>

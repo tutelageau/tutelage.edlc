@@ -8,14 +8,4 @@ Outline shapes every deliverable as headings only: the learner guide, the assess
 
 This is not the course or unit outline given to learners. The skeletons are the designers' blueprint.
 
-## What happens
-
-- Draft the skeleton of each deliverable: sections, sequence, where each task and activity sits.
-- Carry the mapping matrix into the skeletons, so each heading already knows which descriptors it serves.
-- Review the package as a whole for order, load and duplication.
-
-## At the gate, ask
-
-- Does the sequence build skills in an order a learner can follow?
-- Is any section serving no descriptor, or any descriptor without a section?
-- Would changing the order later mean rewriting finished content?
+<!-- stage-data: What happens, the artefact and gate, and At the gate, ask render here; the rest of the page follows them -->

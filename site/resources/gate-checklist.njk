@@ -1,0 +1,27 @@
+---
+layout: layouts/page.njk
+permalink: /resources/gate-checklist/
+title: The gate checklist
+eyebrow: Resources · to print
+lede: Every stage's exit gate, what the stage produces, and the questions to ask before passing it.
+description: A printable checklist of the EDLC's ten exit gates and the questions to ask at each.
+---
+{#- Generated from `_data/stages.js` only: never edit stage wording here. Print CSS drops the site's
+    navigation and footer. -#}
+<p>Tick each question by hand as the gate review answers it. How formal a gate is depends on where you work.</p>
+{%- for s in stages %}
+
+<section class="gate-stage" aria-labelledby="gate-{{ s.slug }}">
+  <h2 id="gate-{{ s.slug }}">Stage {{ s.n }} · {{ s.name }}</h2>
+  <dl class="facts">
+    <div><dt>What it produces</dt><dd>{{ s.artefact }}</dd></div>
+    <div><dt>Exit gate</dt><dd>{{ s.gate }}</dd></div>
+  </dl>
+  <ul class="checklist">
+    {%- for item in s.ask %}
+    <li>{{ item | mdInline | safe }}</li>
+    {%- endfor %}
+  </ul>
+  <p class="checklist__more"><a href="{{ s.url | url }}">Stage {{ s.n }}, {{ s.name }}, in full</a></p>
+</section>
+{%- endfor %}

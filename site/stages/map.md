@@ -10,13 +10,4 @@ This is the cheapest point in the lifecycle to find errors. Reviewing a coverage
 
 The delivery sessions planned here are provisional. They are fitted to the calendar at [Plan delivery](/stages/plan-delivery/).
 
-## What happens
-
-- Choose the assessment strategy: the methods, the number of tasks, and what each task will evidence.
-- Fill the mapping matrix so every descriptor has at least one assessment task and one delivery session planned against it.
-
-## At the gate, ask
-
-- Does every descriptor have planned evidence? Does every planned task trace to a descriptor?
-- Where a program clusters several standards, can each standard's coverage still be read on its own?
-- Would an auditor find the plan complete today, before anything is built?
+<!-- stage-data: What happens, the artefact and gate, and At the gate, ask render here; the rest of the page follows them -->

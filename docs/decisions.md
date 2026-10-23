@@ -27,6 +27,15 @@ A ruling is changed only by a later ruling that names it.
 | ED-17 | 2026-10-23 | Lead | Carrying ED-13 into the paper also changes two phrases that named retired stages: stages 1 to 8 are "the design and release stages" (was "build"), and §4's return path goes "back into Specify or Map" (was "specification or architecture"). The owner carries both into the source doc. A changes log may name retired stages: `/changes/` joins `/inspiration/` as exempt from the retired-name check. |
 | ED-18 | 2026-10-23 | Owner | Commits to this repo use the owner's GitHub noreply address, never a personal one. Earlier commits keep theirs (no force-push). The check fails on an unpushed commit whose author is not a noreply address. |
 | ED-19 | 2026-10-23 | Lead | Under ED-16, stage 6's purpose follows its name in the paper and the canon: "Develop learning content to the assessments" (P-24's finding applied to the line beneath the name). The paper's §10 walk-through keeps its own shape, renaming only the stages. ED-18's check covers the committer as well as the author. The owner carries the paper wording into the source doc. |
+| ED-20 | 2026-10-23 | Owner | `docs/site.story.md` is approved, with its three model additions: the quick check, sector pages that say where a sector's standard comes from and which gates its rules already supply (verified sources only), and layers once the paper carries them. 0.3.0 builds it. |
+| ED-21 | 2026-10-23 | Owner | H-2 option 1: the site and the paper are licensed CC BY 4.0, the code MIT. `LICENSE` files and a footer line. |
+| ED-22 | 2026-10-23 | Owner | H-3 option 1: comment through GitHub issues for now; a form or address later. |
+| ED-23 | 2026-10-23 | Owner | H-4 option 1: all four corrections go into the paper (Royce, test-driven development with §2.2 added per H-9, validation in VET, "pre-use review"). |
+| ED-24 | 2026-10-23 | Owner | H-5 option 1: the paper is exempt from "verified before publish" while it carries its draft note; verification runs as a tracked job. |
+| ED-25 | 2026-10-23 | Owner | H-6 option 1: "observability" stays, defined on first use. |
+| ED-26 | 2026-10-23 | Owner | H-9 option 1: all five corrections go into the paper (ADDIE "as commonly practised", §2.2, iteration planning, no "staging environments", continuous integration). |
+| ED-27 | 2026-10-23 | Lead | On the owner's instruction to carry the brief and every recommendation through to deploy, 0.3.0 carries the redesign, the quick check, one `/sectors/` page and `/resources/` with a generated gate checklist. The sectors page states only verified facts and names what is not yet known; full sector pages and worked examples follow. Sector words come only from verified sources. The gate checklist says it is not a compliance tool. |
+| ED-28 | 2026-10-23 | Lead | Canon check (P-58): `stages.js` matches the paper's §5 except where a ruling allows. Stage 2's artefact and stage 4's purpose now follow the paper word for word. Allowed: ED-08's two (stage 2 "take in", stage 9 artefact); stage 5's gate ("subject-matter"); stage 5's purpose and artefact (plainer, and in the paper's own §5.1 words: the owner may carry them into the paper); house style without the serial comma. |
 
 ## Open memos
 
@@ -56,6 +65,8 @@ and anyone's notes who has already read them.
 
 ### H-2 · A licence for the content
 
+**Decided 2026-10-23 → ED-21.** Kept below as the record of the options.
+
 **What.** The repo is public but has no licence, so by default nobody may reuse the text. The paper's own next
 steps say "publish as an open resource under a Creative Commons licence".
 
@@ -71,6 +82,8 @@ steps say "publish as an open resource under a Creative Commons licence".
 
 ### H-3 · Who may comment, and where
 
+**Decided 2026-10-23 → ED-22.** Kept below as the record of the options.
+
 **What.** `/contribute/` points readers at GitHub issues. Many educators do not have GitHub accounts.
 
 **Options.** (1) GitHub issues now, add a form or email address later (recommended; nothing new to run).
@@ -79,6 +92,8 @@ steps say "publish as an open resource under a Creative Commons licence".
 **If nobody decides.** GitHub issues only.
 
 ### H-4 · Corrections to the paper from the first panel
+
+**Decided 2026-10-23 → ED-23.** Kept below as the record of the options.
 
 **What.** The paper is the owner's text, so these wait for the owner's yes, then go into the source doc and `site/paper.md` together.
 
@@ -93,6 +108,8 @@ steps say "publish as an open resource under a Creative Commons licence".
 
 ### H-5 · Does "verified before publish" apply to the paper?
 
+**Decided 2026-10-23 → ED-24.** Kept below as the record of the options.
+
 **What.** The content standards say a claim about the world needs a `verified` source before it is published. The paper carries its own draft note saying some references are unverified. Strictly read, the paper cannot be published until every reference is verified.
 
 **Options.** (1) The paper is exempt while it carries its draft note, and verification runs as a tracked job (recommended; *gets* the draft public now, which is what inviting comment needs). (2) Hold the paper page until every reference is verified.
@@ -100,6 +117,8 @@ steps say "publish as an open resource under a Creative Commons licence".
 **If nobody decides.** Option 1, and the researcher works through the register.
 
 ### H-6 · "Observability" as a practice name
+
+**Decided 2026-10-23 → ED-25.** Kept below as the record of the options.
 
 **What.** "Observability" is a software operations term. The site defines it plainly, but ED-01 prefers education's words. "Delivery signals" names the data, not the practice.
 
@@ -217,6 +236,8 @@ a light one.
 **If nobody decides.** Nothing is built; the worked example proceeds with an invented unit.
 
 ### H-9 · Further corrections to the paper from the 0.2.0 panel
+
+**Decided 2026-10-23 → ED-26.** Kept below as the record of the options.
 
 **What.** The paper is the owner's text, so these wait for a yes, like H-4. Record:
 `knowledge/panels/2026-10-23.stage-rename.md`.

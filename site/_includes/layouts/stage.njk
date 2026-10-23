@@ -1,32 +1,55 @@
 ---
 layout: layouts/base.njk
 ---
+{#- One template for every stage page (docs/site.story.md §The stage page template). The stage's facts
+    and guidance come from `_data/stages.js`; the page body supplies the opening and any further
+    sections, split at its `<!-- stage-data -->` marker. -#}
 {%- set s = stages | stageByNumber(stage) -%}
 {%- set prev = stages | stageByNumber(s.n - 1) -%}
 {%- set next = stages | stageByNumber(s.n + 1 if s.n < 10 else 2) -%}
-<article class="wrap page">
+{%- set body = content | stageBody -%}
+<article class="wrap page stage">
   <header class="page__head">
     <p class="eyebrow">Stage {{ s.n }} of 10 · {{ "Design and release" if s.half == "build" else "Operate and improve" }}</p>
     <h1>{{ s.name }}</h1>
     <p class="lede">{{ s.question }}</p>
-    {%- if s.formerly %}
-    <p class="page__formerly">Called {{ s.formerly.name }} in <a href="{{ '/changes/' | url }}">version 0.1.0</a>.</p>
-    {%- endif %}
   </header>
+
+  <p class="stage__failure"><strong>The failure it prevents</strong> {{ s.failure }}</p>
+
+  <div class="prose">
+    {{ body[0] | safe }}
+
+    <h2 id="what-happens">What happens</h2>
+    <ul>
+      {%- for item in s.happens %}
+      <li>{{ item | mdInline | safe }}</li>
+      {%- endfor %}
+    </ul>
+  </div>
 
   <dl class="facts">
     <div><dt>Purpose</dt><dd>{{ s.purpose }}</dd></div>
-    <div><dt>Defining artefact</dt><dd>{{ s.artefact }}</dd></div>
+    <div><dt>What it produces</dt><dd>{{ s.artefact }}</dd></div>
     <div><dt>Exit gate</dt><dd>{{ s.gate }}</dd></div>
-    <div><dt>Failure it prevents</dt><dd>{{ s.failure }}</dd></div>
   </dl>
 
   <div class="prose">
-    {{ content | safe }}
+    <h2 id="at-the-gate-ask">At the gate, ask</h2>
+    <ul>
+      {%- for item in s.ask %}
+      <li>{{ item | mdInline | safe }}</li>
+      {%- endfor %}
+    </ul>
+    {%- if body[1] | trim %}
+
+    {{ body[1] | safe }}
+    {%- endif %}
   </div>
 
   <nav class="pager" aria-label="Stages">
     {% if prev %}<a href="{{ prev.url | url }}"><span>Previous · stage {{ prev.n }}</span>{{ prev.name }}</a>{% else %}<span></span>{% endif %}
-    <a class="pager__next" href="{{ next.url | url }}"><span>{{ "Next" if s.n < 10 else "The loop returns" }} · stage {{ next.n }}</span>{{ next.name }}</a>
+    {% if s.n < 10 %}<a class="pager__next" href="{{ next.url | url }}"><span>Next · stage {{ next.n }}</span>{{ next.name }}</a>{% else %}<a class="pager__next" href="{{ '/lifecycle/' | url }}"><span>The loop returns</span>Back to the loop</a>{% endif %}
   </nav>
+  <p class="pager__back"><a href="{{ '/lifecycle/' | url }}">Back to the loop</a></p>
 </article>

@@ -60,8 +60,10 @@ tables have header rows and scroll inside themselves at 360px; text contrast 4.5
 
 ## Page shapes
 
-- A **stage page** is `site/stages/<slug>.md` with `stage: <n>`. Its facts come from `site/_data/stages.js`. Its
-  body: a two-sentence opening, `## What happens` (three to five bullets), `## At the gate, ask` (three or four
-  questions). Operate-stage pages may add a guardrails section.
+- A **stage page** is `site/stages/<slug>.md` with `stage: <n>`. The template renders everything from
+  `site/_data/stages.js`: the question, the failure it prevents, what happens, the artefact and gate, and the gate
+  questions. Fields from the paper's §5 are marked as such; "what happens", the gate questions and the quick-check
+  question are site guidance (ED-20). The page body holds a two-sentence opening and any extra section the stage
+  needs (stage 9's signals and guardrails). The check compares the paper's §5 table with `stages.js`.
 - A **reference page** (glossary, research) is a title, a lede, a table, next to no prose.
 - The **paper** is the owner's text. Edit it only to carry an owner-approved change from the source doc.

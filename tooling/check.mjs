@@ -1,9 +1,13 @@
 // The pre-release check over the built site (`_site/`), run after `pnpm build` locally and in CI.
 // It fails the release on: an internal link or #anchor that resolves to nothing, a page without
-// exactly one <h1> or without a <title>, an <img> without alt, a missing CNAME, a stage name retired by
+// exactly one <h1> or without a <title>, a duplicate id, an <img> without alt, a missing CNAME, a stage name retired by
 // ED-13 or ED-16 outside /inspiration/, /changes/ and the redirect pages (page text, the alt, title,
 // aria-label and content attributes, and the root README.md), a retired stage URL without a working
-// redirect page, an unpushed commit whose author is not a GitHub noreply address (ED-18), and any term
+// redirect page, a difference between the paper's §5 stage table and `stages.js` that is not
+// allowlisted with a reason (P-58), a stage page that restates or fails to render its stages.js facts
+// and guidance, a gate checklist missing a stage's gate or questions, a quick check (/start/) that lacks
+// a stage's question or could send or store anything (ED-20), an unpushed commit whose author is not a
+// GitHub noreply address (ED-18), and any term
 // on the public-safety list (in the built pages and in the repo's own files) or an email address on a
 // page (docs/content.standards.md §Public safety). Bare "Build" is exempt from the retired-name scan:
 // it is too common an English word, so only its stage-naming phrases are caught. No dependencies:
@@ -90,6 +94,11 @@ for (const file of pages) {
   const h1s = (html.match(/<h1[\s>]/g) || []).length;
   if (h1s !== 1) problems.push(`${url}: ${h1s} <h1> elements, expected 1`);
   if (!/<title>[^<]+<\/title>/.test(html)) problems.push(`${url}: no <title>`);
+  const seenIds = new Set();
+  for (const m of html.matchAll(/\sid="([^"]+)"/g)) {
+    if (seenIds.has(m[1])) problems.push(`${url}: duplicate id="${m[1]}"`);
+    seenIds.add(m[1]);
+  }
   for (const m of html.matchAll(/<img\b[^>]*>/g)) if (!/\salt=/.test(m[0])) problems.push(`${url}: <img> without alt`);
 
   for (const run of forbiddenIn(text)) problems.push(`${url}: public-safety term "${run}"`);
@@ -120,8 +129,8 @@ for (const file of repoFiles) {
 
 // ED-01, ED-13 and ED-16: the stage names retired by ED-13 (and ED-13's interim "Assess first",
 // replaced by ED-16) survive only as parallels on /inspiration/, in the log on /changes/ (ED-17) and on
-// the redirect pages at the old stage URLs (driven by `formerly` in stages.js). A stage page's own
-// "Called <old name> in version 0.1.0." line is allowed, once, on that stage's page only.
+// the redirect pages at the old stage URLs (driven by `formerly` in stages.js). Stage pages get no
+// exemption: 0.3.0 dropped their "Called <old name> in version 0.1.0" line.
 // The names are whole words and case-sensitive, so ordinary lowercase use ("scaffold the learner") is
 // not caught; "Test-first" / "Test first" is caught in any case, except in "test-first development",
 // the software practice the paper names in its own argument (§1), which is not the stage. Bare "Build" is exempt (panel finding
@@ -149,10 +158,7 @@ const oldNameExempt = new Set(["/inspiration/", "/changes/", ...renamed.map((s) 
 for (const file of pages) {
   const url = urlOf(file);
   if (oldNameExempt.has(url)) continue;
-  let text = scanText(readFileSync(file, "utf8")).replace(/\s+/g, " ");
-  const own = stages.find((s) => s.url === url && s.formerly);
-  if (own) text = text.replace(new RegExp(`Called ${own.formerly.name} in version 0\\.1\\.0\\s*\\.`), " ");
-  oldNameHits(relative(".", file), text);
+  oldNameHits(relative(".", file), scanText(readFileSync(file, "utf8")));
 }
 if (existsSync("README.md")) oldNameHits("README.md", readFileSync("README.md", "utf8"));
 
@@ -176,6 +182,132 @@ for (const s of renamed) {
   if (!new RegExp(`<link rel="canonical" href="[^"]*${to}"`).test(html)) problems.push(`${where}: canonical does not name ${s.url}`);
   if (!new RegExp(`location\\.replace\\("[^"]*${to}" \\+ location\\.hash\\)`).test(html)) problems.push(`${where}: no script redirect keeping the #anchor`);
   if (/name="robots" content="[^"]*noindex/.test(html)) problems.push(`${where}: marked noindex; the canonical carries it to ${s.url}`);
+}
+
+// Panel P-58, the canon check: the paper's §5 table and `stages.js` agree, field by field, for every
+// field `stages.js` marks as the paper's (`stages.provenance.paper`). Cells are compared after
+// collapsing whitespace, dropping Markdown emphasis and a trailing full stop (the data writes purposes
+// as sentences; the table does not). Every other difference must be listed below with its reason, and
+// an entry that no longer matches both texts exactly is itself a finding, so the list cannot go stale.
+const CANON_DIFFERENCES = [
+  { n: 2, field: "purpose", paper: "Ingest or author the learning standard", site: "Take in or author the learning standard", reason: "ED-08: \"ingest\" is a software word; the site says \"take in\"" },
+  { n: 9, field: "artefact", paper: "Delivery telemetry, results, feedback, incidents", site: "Delivery signals, results, feedback, complaints and appeals", reason: "ED-08: \"telemetry\" and \"incident\" are software words (docs/content.standards.md)" },
+  { n: 5, field: "gate", paper: "Compliance, pedagogy, and expert sign-off", site: "Compliance, pedagogy and subject-matter sign-off", reason: "sanctioned by the lead: \"subject-matter\" names which expert signs off" },
+  { n: 5, field: "purpose", paper: "Write assessments and their context", site: "Write the assessments and the context they sit in", reason: "ED-28: plainer site wording; owner to carry into the paper" },
+  { n: 5, field: "artefact", paper: "Assessment tasks, marking guides, scenario", site: "Assessment tasks, marking guides, a simulated workplace or case study", reason: "ED-28: spells out \"scenario\" in the paper's own §5.1 words; owner to carry into the paper" },
+  { n: 10, field: "purpose", paper: "Review, triage, and route changes", site: "Review, triage and route changes", reason: "ED-28: house style, no serial comma (Australian English)" },
+];
+const canonText = (t) => String(t ?? "").replace(/[*_]/g, "").replace(/\s+/g, " ").trim().replace(/\.$/, "");
+{
+  const paper = readFileSync("site/paper.md", "utf8");
+  const at = paper.search(/^## 5\.? /m);
+  const lines = at < 0 ? [] : paper.slice(at).split("\n");
+  const end = lines.findIndex((l, i) => i > 0 && /^## /.test(l));
+  const cells = (l) => l.split("|").slice(1, -1).map((c) => c.trim());
+  const rows = lines.slice(0, end < 0 ? undefined : end).filter((l) => /^\|\s*\d+\s*\|/.test(l)).map(cells);
+  const fields = stages.provenance?.paper ?? [];
+  const COLUMN = { name: 1, purpose: 2, artefact: 3, gate: 4, failure: 5 };
+  if (at < 0) problems.push("site/paper.md: no \"## 5\" section, so the stage table cannot be compared (P-58)");
+  else if (rows.length !== stages.length) problems.push(`site/paper.md §5: ${rows.length} stage rows, stages.js has ${stages.length} (P-58)`);
+  if (!fields.length) problems.push("site/_data/stages.js: no `provenance.paper` fields to compare (P-58)");
+  const used = new Set();
+  for (const row of rows) {
+    const s = stages.find((x) => x.n === Number(row[0]));
+    if (!s) {
+      problems.push(`site/paper.md §5: stage ${row[0]} is not in stages.js (P-58)`);
+      continue;
+    }
+    for (const field of fields) {
+      if (!(field in COLUMN)) {
+        problems.push(`site/_data/stages.js: provenance names "${field}" as the paper's, but §5 has no such column (P-58)`);
+        continue;
+      }
+      const p = canonText(row[COLUMN[field]]);
+      const d = canonText(s[field]);
+      if (p === d) continue;
+      const ok = CANON_DIFFERENCES.find((x) => x.n === s.n && x.field === field && x.paper === p && x.site === d);
+      if (ok) used.add(ok);
+      else problems.push(`stage ${s.n} ${field}: stages.js "${d}" differs from paper §5 "${p}", and no allowlisted reason (P-58)`);
+    }
+  }
+  for (const x of CANON_DIFFERENCES)
+    if (!used.has(x)) problems.push(`check.mjs: allowlisted canon difference for stage ${x.n} ${x.field} no longer matches the paper and stages.js; remove or update it (P-58)`);
+}
+
+// The stage template (docs/site.story.md §The stage page template): stage facts and guidance live once,
+// in stages.js. No stage page restates its What happens or At the gate, ask by hand; every built stage
+// page renders its failure, purpose, artefact, gate and every happens and ask item; the gate checklist
+// renders every stage's artefact, gate and ask items.
+const plainText = (html) =>
+  html
+    .replace(/<script[\s\S]*?<\/script>/g, " ")
+    .replace(/<[^>]+>/g, " ")
+    .replace(/&quot;/g, '"')
+    .replace(/&#39;/g, "'")
+    .replace(/&amp;/g, "&")
+    .replace(/\s+/g, " ");
+const mdPlain = (t) => t.replace(/\[([^\]]+)\]\([^)]+\)/g, "$1").replace(/[*_`]/g, "");
+const builtText = (url) => {
+  const file = join(OUT, url, "index.html");
+  return existsSync(file) ? plainText(readFileSync(file, "utf8")) : null;
+};
+for (const s of stages) {
+  const srcFile = join("site", "stages", `${s.slug}.md`);
+  if (existsSync(srcFile) && /^## (What happens|At the gate, ask)\s*$/m.test(readFileSync(srcFile, "utf8")))
+    problems.push(`${srcFile}: restates a section the stage template renders from stages.js (What happens, At the gate, ask)`);
+  for (const k of ["happens", "ask"]) if (!Array.isArray(s[k]) || !s[k].length) problems.push(`stages.js stage ${s.n}: no \`${k}\` items`);
+  const text = builtText(s.url);
+  if (text === null) {
+    problems.push(`${s.url}: stage page missing`);
+    continue;
+  }
+  for (const v of [s.failure, s.purpose, s.artefact, s.gate, ...(s.happens || []), ...(s.ask || [])])
+    if (!text.includes(mdPlain(v))) problems.push(`${s.url}: does not render "${v}" from stages.js`);
+}
+{
+  const url = "/resources/gate-checklist/";
+  const text = builtText(url);
+  if (text === null) problems.push(`${url}: missing`);
+  else
+    for (const s of stages)
+      for (const v of [s.name, s.artefact, s.gate, ...(s.ask || [])])
+        if (!text.includes(mdPlain(v))) problems.push(`${url}: does not render "${v}" (stage ${s.n})`);
+}
+
+// The quick check (ED-20) on /start/: every stage's question is on the page, and the page sends and
+// stores nothing. No external script, no network call, no storage, no cookies, no form target.
+{
+  const file = join(OUT, "start", "index.html");
+  if (!existsSync(file)) problems.push("/start/: missing (the quick check lives there)");
+  else {
+    const html = readFileSync(file, "utf8");
+    const text = plainText(html);
+    for (const s of stages) {
+      if (!s.check) problems.push(`stages.js stage ${s.n}: no \`check\` question (ED-20)`);
+      else if (!text.includes(s.check)) problems.push(`/start/: quick check lacks stage ${s.n}'s question`);
+    }
+    const SENDS_OR_STORES = [
+      [/<script\b[^>]*\bsrc=/i, "an external script"],
+      [/\bfetch\s*\(/, "fetch("],
+      [/XMLHttpRequest/, "XMLHttpRequest"],
+      [/sendBeacon/, "navigator.sendBeacon"],
+      [/\bWebSocket\b|\bEventSource\b/, "a socket or event stream"],
+      [/localStorage/, "localStorage"],
+      [/sessionStorage/, "sessionStorage"],
+      [/indexedDB/, "indexedDB"],
+      [/document\.cookie/, "document.cookie"],
+      [/<form\b[^>]*\b(?:action|method)=/i, "a form that submits somewhere"],
+    ];
+    for (const [re, what] of SENDS_OR_STORES) if (re.test(html)) problems.push(`/start/: the quick check page uses ${what}; it must send and store nothing (ED-20)`);
+    // The script must reach the browser whole: Markdown can wrap parts of an inline script in <p>.
+    for (const m of html.matchAll(/<script>([\s\S]*?)<\/script>/g)) {
+      try {
+        new Function(m[1]);
+      } catch (e) {
+        problems.push(`/start/: the quick check's script does not parse (${e.message}); it works only without script`);
+      }
+    }
+  }
 }
 
 // ED-18: commits not yet on origin/main are authored with a GitHub noreply address. Only the count and
@@ -205,4 +337,4 @@ if (problems.length) {
   console.error(`check: ${problems.length} problem(s)\n` + problems.map((p) => `  - ${p}`).join("\n"));
   process.exit(1);
 }
-console.log(`check: ${pages.length} pages and ${repoFiles.length} repo files clean (links, anchors, headings, retired stage names and redirects, commit authors, public safety)`);
+console.log(`check: ${pages.length} pages and ${repoFiles.length} repo files clean (links, anchors, headings, retired stage names and redirects, canon against the paper, stage template, gate checklist, quick check, commit authors, public safety)`);

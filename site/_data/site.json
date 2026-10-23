@@ -6,11 +6,16 @@
   "repo": "https://github.com/tutelageau/tutelage.edlc",
   "issues": "https://github.com/tutelageau/tutelage.edlc/issues",
   "nav": [
-    { "label": "The lifecycle", "url": "/lifecycle/" },
-    { "label": "Practices", "url": "/practices/" },
-    { "label": "Guardrails", "url": "/guardrails/" },
-    { "label": "Paper", "url": "/paper/" },
-    { "label": "Research", "url": "/research/" },
-    { "label": "Contribute", "url": "/contribute/" }
+    { "label": "Start here", "url": "/start/" },
+    { "label": "The lifecycle", "url": "/lifecycle/", "also": ["/stages/", "/practices/", "/guardrails/"] },
+    { "label": "Your sector", "url": "/sectors/" },
+    { "label": "Resources", "url": "/resources/", "also": ["/glossary/"] },
+    { "label": "Paper", "url": "/paper/", "also": ["/research/", "/changes/"] }
+  ],
+  "footer": [
+    { "label": "Contribute", "url": "/contribute/" },
+    { "label": "Changes", "url": "/changes/" },
+    { "label": "Glossary", "url": "/glossary/" },
+    { "label": "Where the idea came from", "url": "/inspiration/" }
   ]
 }

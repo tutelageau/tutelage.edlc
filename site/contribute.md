@@ -7,7 +7,7 @@ lede: The EDLC is a public draft. It gets better the way it says programs should
 ---
 ## Comment on the model
 
-Open an [issue on GitHub]({{ site.issues }}) for anything that is wrong, unclear or missing. Useful comments say:
+Open an [issue on GitHub]({{ site.issues }}) for anything that is wrong, unclear or missing. For now, GitHub issues are the only channel; a form or an address may follow. Useful comments say:
 
 - which page or stage the comment is about;
 - what you would expect instead, and why;

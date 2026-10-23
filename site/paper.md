@@ -4,12 +4,13 @@ permalink: /paper/
 title: "The Education Development Lifecycle: Bringing Software Lifecycle Discipline to the Design, Delivery, and Continuous Improvement of Learning"
 eyebrow: Paper · public draft
 description: The conceptual paper behind the EDLC, with its framework, stages, practices, guardrails and research agenda.
+toc: true
 ---
 <p class="note">This is a working draft, published for comment on 23 October 2026. It has not been peer reviewed, and some references are still to be verified against their originals (see the note under References). <a href="{{ site.issues }}">Comment on GitHub</a>.</p>
 
 ## Abstract
 
-Education has well-established models for *designing* instruction, but weak practice for *maintaining and improving* it once it reaches learners. Software engineering faced a similar gap and closed much of it through lifecycle practices: traceable requirements, test-first development, version control, dependency management, continuous integration, production observability, and the explicit management of technical debt.
+Education has well-established models for *designing* instruction, but weak practice for *maintaining and improving* it once it reaches learners. Software engineering faced a similar gap and closed much of it through lifecycle practices: traceable requirements, test-first development, version control, dependency management, production observability, and the explicit management of technical debt.
 
 This paper proposes the Education Development Lifecycle (EDLC), a ten-stage, gated, closed-loop model for the design, release, delivery, and continuous improvement of learning programs. The EDLC treats a learning standard as a specification, assessment as the test suite, a mapping matrix as the traceability matrix, and a delivered cohort as a versioned release whose performance is observed and fed back into design.
 
@@ -41,11 +42,11 @@ The EDLC sits where four bodies of work meet: instructional systems design, alig
 
 ADDIE (Analyse, Design, Develop, Implement, Evaluate) is the most widely cited instructional design process. Its roots lie in the Interservice Procedures for Instructional Systems Development, produced by Florida State University's Center for Educational Technology for the US armed forces (Branson et al., 1975). Molenda (2003) notes that the acronym itself has no clear origin and that ADDIE functions more as an umbrella term than a single specified model.
 
-In its early form ADDIE was largely sequential, which makes it the closest educational analogue to the waterfall model (Royce, 1970). Its main practical weakness mirrors waterfall's: evaluation arrives last and is often reduced to learner satisfaction surveys, so it rarely reshapes the design.
+In its early form ADDIE was largely sequential, like the model Royce (1970) described and warned against running as a single pass. Its main practical weakness mirrors that model's: summative evaluation arrives last, often reduced to learner satisfaction surveys, so it rarely reshapes the design.
 
 ### 2.2 Alignment-based design
 
-Backward design (Wiggins & McTighe, 1998) begins with desired results, then defines acceptable evidence, and only then plans learning activities. Constructive alignment (Biggs, 1996) similarly requires that intended outcomes, teaching activities, and assessment tasks align. Both anticipate test-driven development (Beck, 2002): define what success looks like, then build toward it. Neither, however, addresses what happens after delivery.
+Backward design (Wiggins & McTighe, 1998) begins with desired results, then defines acceptable evidence, and only then plans learning activities. Constructive alignment (Biggs, 1996) similarly requires that intended outcomes, teaching activities, and assessment tasks align. Both put acceptance criteria first, in the spirit of test-driven development (Beck, 2002): define what success looks like, then build toward it. Neither, however, addresses what happens after delivery.
 
 ### 2.3 Iterative design
 
@@ -57,7 +58,7 @@ Learning engineering is defined by the IEEE-hosted ICICLE consortium as a proces
 
 ### 2.5 Quality assurance regimes
 
-Regulated sectors already impose lifecycle-like obligations. In Australian VET, the Standards for RTOs that took effect on 1 July 2025 require providers to review assessment tools before use and to validate assessment practice on a risk basis (DEWR, 2025). These obligations supply gates, but they are framed as compliance events, not as stages in a feedback loop.
+Regulated sectors already impose lifecycle-like obligations. In Australian VET, the Outcome Standards that commenced on 1 July 2025 require providers to review assessment tools before use (Standard 1.3). Every training product must be validated at least once every five years, and more often where risks, changes or feedback arise (Standard 1.5). Risk decides which components are validated and how large a sample (Outcome Standards Instrument, 2025). These obligations supply gates, but they are framed as compliance events, not as stages in a feedback loop.
 
 ### 2.6 Software lifecycle practice
 
@@ -81,12 +82,12 @@ The EDLC is a ten-stage closed loop. Stages 1 to 8 design and release a learning
 
 {% include "partials/loop.njk" %}
 
-Figure 1 shows the loop. The feedback path from stage 10 is what distinguishes the EDLC from ADDIE: improvement is a routine route back into Specify or Map, not a one-off evaluation.
+Figure 1 shows the loop. The feedback path from stage 10 is what distinguishes the EDLC from ADDIE as commonly practised. Improvement is a routine route back into Specify or Map, not a one-off evaluation.
 
 ### 4.1 Design principles
 
 1. **Specification first.** Every program traces to an explicit learning standard, whether externally regulated or authored in-house.
-2. **Evidence before content.** Assessment is designed before learning materials, so content exists to enable demonstrated outcomes (backward design as test-driven development).
+2. **Evidence before content.** Assessment is designed before learning materials, so content exists to enable demonstrated outcomes (backward design: acceptance criteria first, in the spirit of test-driven development).
 3. **Progressive elaboration with gates.** Detail increases stage by stage, and each stage is reviewed before effort is invested in the next. Errors are cheapest to fix at the blurriest stage.
 4. **Traceability end to end.** Every assessment task, content block, and delivery session traces to the outcome it serves, and the reverse.
 5. **Versioned releases.** Every cohort receives an identifiable version of the program, so outcomes can be attributed to what was actually delivered.
@@ -103,12 +104,12 @@ Figure 1 shows the loop. The feedback path from stage 10 is what distinguishes t
 | Traceability matrix | Mapping matrix linking outcomes to assessment and delivery | 3 |
 | Architecture review | Coverage and assessment strategy review | 3 |
 | Scaffolding and interface stubs | Structural skeleton of all deliverables | 4 |
-| Test-driven development | Assessments and marking guides written before content | 5 |
-| Test fixtures and staging environments | Simulated workplace or case-study context | 5 |
+| Test-driven development | Acceptance criteria first: assessments and marking guides written before content | 5 |
+| Test fixtures | Simulated workplace or case-study context | 5 |
 | Implementation | Learning materials and activities | 6 |
-| Release planning | Session or module plan within timetable constraints | 7 |
+| Iteration planning | Session or module plan within timetable constraints | 7 |
 | Code review | Peer, subject-matter expert, and compliance review | 3 to 8 |
-| Release and certification | Pre-use validation and versioned release | 8 |
+| Release and certification | Pre-use review and versioned release | 8 |
 | Production monitoring | Learning and assessment analytics | 9 |
 | Incident management | Complaints, appeals, and assessor disputes | 9 |
 | Retrospective and post-incident review | Post-use validation | 10 |
@@ -146,7 +147,7 @@ Each stage has a purpose, a defining artefact, an exit gate, and a characteristi
 
 **Develop** is the most labour-intensive stage but the least risky, because structure and evidence are already settled.
 
-**Plan delivery** reconciles design with reality. Timetables, term lengths, and delivery modes are hard constraints, in the way that release windows constrain software.
+**Plan delivery** reconciles design with reality. Timetables, term lengths, and delivery modes are hard constraints, in the way that timeboxes constrain a software iteration.
 
 **Validate and release** turns the package into a named version, so that later evidence can be tied to exactly what was delivered.
 
@@ -282,13 +283,13 @@ Draft note: entries with links were checked online for this draft; the rest are 
 - CAST. (2018). *Universal Design for Learning guidelines, version 2.2*.
 - Collins, A. (1992). Toward a design science of education. In E. Scanlon & T. O'Shea (Eds.), *New directions in educational technology* (pp. 15–22). Springer.
 - Cunningham, W. (1992). The WyCash portfolio management system. *OOPSLA '92 Experience Report*.
-- Department of Employment and Workplace Relations (DEWR). (2025). [*2025 Standards for Registered Training Organisations*](https://www.dewr.gov.au/standards-for-rtos). Australian Government.
 - Forsgren, N., Humble, J., & Kim, G. (2018). *Accelerate: The science of lean software and DevOps*. IT Revolution Press.
 - Gentner, D. (1983). Structure-mapping: A theoretical framework for analogy. *Cognitive Science, 7*(2), 155–170.
 - IEEE International Consortium for Innovation and Collaboration in Learning Engineering (ICICLE). [*Learning engineering definition*](https://sagroups.ieee.org/icicle/2022-icicle-conference-on-learning-engineering/). IEEE Standards Association.
 - Kim, G., Humble, J., Debois, P., & Willis, J. (2016). *The DevOps handbook*. IT Revolution Press.
+- *National Vocational Education and Training Regulator (Outcome Standards for Registered Training Organisations) Instrument 2025* (Cth), [F2025L00354](https://www.legislation.gov.au/F2025L00354/latest/text). Federal Register of Legislation. Commenced 1 July 2025. Cited as Outcome Standards Instrument (2025).
 - Molenda, M. (2003). [In search of the elusive ADDIE model](https://wikicap.ulb.be/images/5/5f/Molenda_2003.pdf). *Performance Improvement, 42*(5), 34–36.
-- Royce, W. W. (1970). Managing the development of large software systems. *Proceedings of IEEE WESCON, 26*, 1–9.
+- Royce, W. W. (1970). Managing the development of large software systems. *Proceedings of IEEE WESCON*, 1–9.
 - Siemens, G. (2013). Learning analytics: The emergence of a discipline. *American Behavioral Scientist, 57*(10), 1380–1400.
 - Wiggins, G., & McTighe, J. (1998). *Understanding by design*. Association for Supervision and Curriculum Development.
 

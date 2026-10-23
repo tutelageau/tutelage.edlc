@@ -28,7 +28,7 @@
       <nav aria-label="Main">
         <ul class="nav">
           {%- for item in site.nav %}
-          <li><a href="{{ item.url | url }}"{% if page.url.startsWith(item.url) %} aria-current="page"{% endif %}>{{ item.label }}</a></li>
+          <li><a href="{{ item.url | url }}"{% if item | navCurrent(page.url) %} aria-current="page"{% endif %}>{{ item.label }}</a></li>
           {%- endfor %}
         </ul>
       </nav>
@@ -39,8 +39,16 @@
   </main>
   <footer class="footer">
     <div class="wrap footer__row">
-      <p>Version {{ release.version }} · {{ release.status }} · <a href="{{ '/changes/' | url }}">Changes</a> · <a href="{{ '/glossary/' | url }}">Glossary</a> · <a href="{{ '/inspiration/' | url }}">Where the idea came from</a></p>
-      <p><a href="{{ site.issues }}">Comment or raise an issue</a> · <a href="{{ site.repo }}">Source</a> · A <a href="https://tutelage.au">Tutelage</a> initiative</p>
+      <nav aria-label="Footer">
+        <ul class="footer__links">
+          {%- for item in site.footer %}
+          <li><a href="{{ item.url | url }}">{{ item.label }}</a></li>
+          {%- endfor %}
+          <li><a href="{{ site.repo }}">Source</a></li>
+        </ul>
+      </nav>
+      <p>Version {{ release.version }} · {{ release.status }} · <a href="{{ site.issues }}">Comment or raise an issue</a></p>
+      <p><a href="{{ site.repo }}/blob/main/LICENSE-content.md">Text CC BY 4.0</a> · <a href="{{ site.repo }}/blob/main/LICENSE">code MIT</a> · A <a href="https://tutelage.au">Tutelage</a> initiative</p>
     </div>
   </footer>
 </body>

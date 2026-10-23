@@ -1,0 +1,86 @@
+{#- The quick check (docs/site.story.md §The quick check, ED-20): one question per stage, from `check` in
+    `_data/stages.js`. It runs in the reader's browser and sends and stores nothing: no submit target, no
+    network call, no storage, no cookies (`tooling/check.mjs` asserts this on the built page). Without
+    script it is a list of the questions, each linking to its stage; the answers and the result appear
+    only when the script runs. -#}
+<form class="qc" id="qc-form" aria-describedby="qc-note" data-loop="{{ '/lifecycle/' | url }}">
+  <p class="qc__note" id="qc-note">A reading guide, not a measure of anyone's practice. Nothing you choose leaves this page.</p>
+  {%- for s in stages %}
+  <fieldset class="qc__item" data-stage="{{ s.n }}" data-name="{{ s.name }}" data-href="{{ s.url | url }}">
+    <legend><span class="qc__num">Stage {{ s.n }}</span> {{ s.check }}</legend>
+    <div class="qc__answers" hidden>
+      <label><input type="radio" name="stage-{{ s.n }}" value="yes"> Yes</label>
+      <label><input type="radio" name="stage-{{ s.n }}" value="partly"> Partly</label>
+      <label><input type="radio" name="stage-{{ s.n }}" value="not-yet"> Not yet</label>
+    </div>
+    <p class="qc__link"><a href="{{ s.url | url }}">Read stage {{ s.n }}, {{ s.name }}</a></p>
+  </fieldset>
+  {%- endfor %}
+  <div class="qc__result" id="qc-result" role="status" aria-live="polite" hidden></div>
+</form>
+{#- The blank line below keeps the script its own HTML block when this partial is included in a Markdown
+    page; without it, Markdown wraps the script's blank-line-separated parts in <p> and it breaks. #}
+
+<script>
+(function () {
+  var form = document.getElementById("qc-form");
+  var result = document.getElementById("qc-result");
+  if (!form || !result) return;
+  var items = Array.prototype.slice.call(form.querySelectorAll(".qc__item"));
+  items.forEach(function (item) {
+    item.querySelector(".qc__answers").hidden = false;
+  });
+  result.hidden = false;
+  form.addEventListener("submit", function (event) {
+    event.preventDefault();
+  });
+
+  function link(item, answer) {
+    var li = document.createElement("li");
+    var a = document.createElement("a");
+    a.href = item.dataset.href;
+    a.textContent = "Stage " + item.dataset.stage + ", " + item.dataset.name;
+    li.appendChild(a);
+    li.appendChild(document.createTextNode(" (" + answer + ")"));
+    return li;
+  }
+
+  function show() {
+    var notYet = [];
+    var partly = [];
+    var answered = 0;
+    items.forEach(function (item) {
+      var picked = item.querySelector("input:checked");
+      if (!picked) return;
+      answered++;
+      if (picked.value === "not-yet") notYet.push(item);
+      if (picked.value === "partly") partly.push(item);
+    });
+    result.textContent = "";
+    if (!answered) return;
+    var head = document.createElement("p");
+    head.className = "qc__result-title";
+    if (!notYet.length && !partly.length) {
+      head.textContent = "Every answer so far is Yes. ";
+      var loop = document.createElement("a");
+      loop.href = form.dataset.loop;
+      loop.textContent = "Read the stages in order, from the loop";
+      head.appendChild(loop);
+      result.appendChild(head);
+      return;
+    }
+    head.textContent = "Read first (" + answered + " of " + items.length + " answered):";
+    var list = document.createElement("ol");
+    notYet.forEach(function (item) {
+      list.appendChild(link(item, "not yet"));
+    });
+    partly.forEach(function (item) {
+      list.appendChild(link(item, "partly"));
+    });
+    result.appendChild(head);
+    result.appendChild(list);
+  }
+
+  form.addEventListener("change", show);
+})();
+</script>

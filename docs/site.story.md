@@ -1,6 +1,6 @@
 # The site's story and shape
 
-Status: **proposal, 2026-10-23, awaiting the owner.** Stages 2 and 3 (Specify, Map) of the story-led redesign
+Status: **approved 2026-10-23 (ED-20), with its three model additions.** Stages 2 and 3 (Specify, Map) of the story-led redesign
 (ED-09). Built on `knowledge/research/2026-10-23.framework-sites.md`; trace-checked by the `analyst` the same day.
 
 Most of this is presentation of what the paper already says. Three parts would **add to the model** and need the
@@ -125,9 +125,8 @@ next on every spine page. Phone first, because a trainer reads between classes.
 | Version | Carries | Needs |
 | --- | --- | --- |
 | 0.2.0 | Stage names in education's words (ED-13, ED-16); the researcher's source verdicts | Released through the gate, 2026-10-23 |
-| 0.3.0 | New navigation, Start here, stage template, clickable loop, previous and next. Drops the "Called … in 0.1.0" line from stage pages | Owner's yes to this brief |
-| 0.3.x | The quick check | Owner's yes to the model addition |
-| 0.4.0 | Sector pages, Resources, worked examples | Verified sources per sector. Gaps today: HESF beyond its headings, the AQF, TEQSA's review guidance, Core Skills for Work, the 2025 Training Package Organising Framework, NESA's programming rules. Worked examples per ED-15 |
+| 0.3.0 | New navigation, Start here, stage template, clickable loop, previous and next, the quick check, one Your sector page (verified facts only), Resources with a generated gate checklist, licences, the paper's H-4 and H-9 corrections. Drops the "Called … in version 0.1.0" line | Owner's yes (ED-20, ED-27) |
+| 0.4.0 | A page per sector, worked examples (ED-15), sector words in more depth | Sources still leads: HESF clause text, the AQF, the 2025 Training Package Organising Framework, NESA's programming rules, the training.gov.au licence |
 | 0.5.0 | Scale and layers | The paper carrying the five layers (ED-14) |
 
 ## Open for the owner

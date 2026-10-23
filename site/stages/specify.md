@@ -8,13 +8,4 @@ Specify turns the learning standard into structured data rather than a document.
 
 The same structure can represent a regulated vocational unit, a university subject, or a course authored by an independent expert. Where no external standard exists, this is the stage where you author one.
 
-## What happens
-
-- Take in the current version of the standard, or author it, and record which version you are designing against.
-- Break it into outcome descriptors: specific, observable expectations that are the smallest unit of traceability.
-
-## At the gate, ask
-
-- Is this the current, active version of the standard?
-- Could two designers read a descriptor and agree on what evidence would show it?
-- Is anything in the standard we have not yet represented?
+<!-- stage-data: What happens, the artefact and gate, and At the gate, ask render here; the rest of the page follows them -->

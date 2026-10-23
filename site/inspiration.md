@@ -16,12 +16,12 @@ Software engineering faced a similar gap and closed much of it with lifecycle pr
 | Traceability matrix | Mapping matrix linking outcomes to assessment and delivery | 3 Map |
 | Architecture review | Coverage and assessment strategy review | 3 Map |
 | Scaffolding and interface stubs | Structural skeleton of all deliverables | 4 Outline |
-| Test-driven development | Assessments and marking guides written before content | 5 Assessment first |
-| Test fixtures and staging environments | Simulated workplace or case-study context | 5 Assessment first |
+| Test-driven development | Acceptance criteria first: assessments and marking guides written before content | 5 Assessment first |
+| Test fixtures | Simulated workplace or case-study context | 5 Assessment first |
 | Implementation | Learning materials and activities | 6 Develop |
-| Release planning | Session or module plan within timetable constraints | 7 Plan delivery |
+| Iteration planning | Session or module plan within timetable constraints | 7 Plan delivery |
 | Code review | Peer, subject-matter expert and compliance review | 3 to 8 |
-| Release and certification | Pre-use validation and versioned release | 8 Validate and release |
+| Release and certification | Pre-use review and versioned release | 8 Validate and release |
 | Production monitoring | Learning and assessment analytics | 9 Deliver and observe |
 | Incident management | Complaints, appeals and assessor disputes | 9 Deliver and observe |
 | Retrospective and post-incident review | Post-use validation | 10 Improve |

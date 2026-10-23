@@ -1,30 +1,46 @@
 {#- The EDLC loop (paper, Figure 1): ten stages clockwise from twelve o'clock, the operate half
     (9–10) drawn dashed, and the feedback path from Improve back to the design stages. The arrow is drawn
     towards Specify, but the paper leaves the re-entry point open, so the <desc> names no stage.
-    Positions come from `_data/stages.js`; the ordered list beneath carries the same content for
-    readers who do not see the figure. -#}
+    Each node is a link to its stage page, in stage order for the keyboard, named "Stage n, Name".
+    The svg is a group, not an image, so its links stay reachable by assistive technology. Positions
+    come from `_data/stages.js`; the ordered list beneath carries the same content for readers who do
+    not see the figure. Long names wrap onto two lines so the labels stay inside a tight viewBox centred
+    on the circle. -#}
 <figure class="loop">
-  <svg viewBox="-130 -10 780 540" role="img" aria-labelledby="loop-title loop-desc">
+  <svg viewBox="-80 0 680 520" role="group" aria-labelledby="loop-title" aria-describedby="loop-desc">
     <title id="loop-title">The Education Development Lifecycle loop</title>
-    <desc id="loop-desc">Ten stages in a circle. Stages 1 to 8 design and release a program; stages 9 and 10 operate it. An arrow from stage 10, Improve, returns to the design stages.</desc>
+    <desc id="loop-desc">Ten stages in a circle. Stages 1 to 8 design and release a program; stages 9 and 10 operate it. An arrow from stage 10, Improve, returns to the design stages. Each stage links to its page.</desc>
     <defs>
       <marker id="loop-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
         <path d="M0,0 L10,5 L0,10 z" class="loop__arrowhead"/>
       </marker>
     </defs>
-    <circle cx="260" cy="260" r="190" class="loop__track"/>
-    {%- set improve = stages | stageByNumber(10) -%}
-    {%- set specify = stages | stageByNumber(2) -%}
-    <path d="M{{ improve.x + 18 }},{{ improve.y + 22 }} Q260,250 {{ specify.x - 30 }},{{ specify.y + 20 }}" class="loop__feedback" marker-end="url(#loop-arrow)"/>
-    <text x="260" y="232" class="loop__note" text-anchor="middle">What delivery teaches</text>
-    <text x="260" y="250" class="loop__note" text-anchor="middle">returns to design</text>
+    <g aria-hidden="true">
+      <circle cx="260" cy="260" r="190" class="loop__track"/>
+      {%- set improve = stages | stageByNumber(10) -%}
+      {%- set specify = stages | stageByNumber(2) -%}
+      <path d="M{{ improve.x + 18 }},{{ improve.y + 22 }} Q260,250 {{ specify.x - 30 }},{{ specify.y + 20 }}" class="loop__feedback" marker-end="url(#loop-arrow)"/>
+      <text x="260" y="232" class="loop__note" text-anchor="middle">What delivery teaches</text>
+      <text x="260" y="250" class="loop__note" text-anchor="middle">returns to design</text>
+    </g>
     {%- for s in stages %}
-    <a href="{{ s.url | url }}" tabindex="-1" class="loop__node loop__node--{{ s.half }}">
-      <circle cx="{{ s.x }}" cy="{{ s.y }}" r="28"/>
-      <text x="{{ s.x }}" y="{{ s.y + 6 }}" text-anchor="middle" class="loop__num">{{ s.n }}</text>
-      {%- set right = s.x > 262 -%}
-      {%- set mid = s.x >= 258 and s.x <= 262 -%}
-      <text x="{{ s.x if mid else (s.x + 38 if right else s.x - 38) }}" y="{{ (s.y - 40) if (mid and s.y < 260) else ((s.y + 50) if mid else (s.y + 5)) }}" text-anchor="{{ 'middle' if mid else ('start' if right else 'end') }}" class="loop__label">{{ s.name }}</text>
+    {%- set right = s.x > 262 -%}
+    {%- set mid = s.x >= 258 and s.x <= 262 -%}
+    {%- set words = s.name.split(" ") -%}
+    {%- set wrap = s.name.length > 13 and words.length > 1 -%}
+    {%- set lx = s.x if mid else (s.x + 40 if right else s.x - 40) -%}
+    {%- set ly = (s.y - 42) if (mid and s.y < 260) else ((s.y + 54) if mid else (s.y + 6)) -%}
+    <a href="{{ s.url | url }}" class="loop__node loop__node--{{ s.half }}" aria-label="Stage {{ s.n }}, {{ s.name }}">
+      <circle cx="{{ s.x }}" cy="{{ s.y }}" r="38" class="loop__focus"/>
+      <circle cx="{{ s.x }}" cy="{{ s.y }}" r="30" class="loop__dot"/>
+      <text x="{{ s.x }}" y="{{ s.y + 7 }}" text-anchor="middle" class="loop__num">{{ s.n }}</text>
+      <text x="{{ lx }}" y="{{ (ly - 10) if wrap else ly }}" text-anchor="{{ 'middle' if mid else ('start' if right else 'end') }}" class="loop__label">
+        {%- if wrap -%}
+        <tspan x="{{ lx }}">{{ words.slice(0, -1).join(" ") }}</tspan><tspan x="{{ lx }}" dy="1.2em">{{ words | last }}</tspan>
+        {%- else -%}
+        {{ s.name }}
+        {%- endif -%}
+      </text>
     </a>
     {%- endfor %}
   </svg>
