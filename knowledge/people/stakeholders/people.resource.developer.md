@@ -48,3 +48,4 @@ Looks for a worked example with a real unit code. No example, no trust.
 ## How this sheet grows
 
 - 2026-10-23: first drawn. Main user of the starter repository (ED-12).
+- 2026-10-23: panel 3 (redesign). To add: where her job ends and the client's starts (stage 1? in the room at stage 8?); what her mapping spreadsheet holds today (columns; knowledge and performance evidence rows as well as criteria); whether she works alone or subcontracts.

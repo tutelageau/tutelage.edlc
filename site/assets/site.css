@@ -81,7 +81,10 @@ a:hover { color: var(--accent-emphasis); }
 .nav { display: flex; flex-wrap: wrap; gap: 2px 4px; list-style: none; margin: 0; padding: 0; }
 .nav a { display: block; padding: 6px 10px; border-radius: var(--r-chip); color: var(--label); text-decoration: none; font-size: 0.875rem; font-weight: 560; }
 .nav a:hover { background: var(--sunken); color: var(--ink); }
-.nav a[aria-current="page"] { background: var(--accent-soft); color: var(--accent-text); }
+/* Current item: a 2px underline in accent-text is the non-colour cue (shape, not hue), on the page
+   itself and on its section's item; the page's own item also takes the accent-soft tint. */
+.nav a[aria-current] { color: var(--accent-text); text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 0.35em; }
+.nav a[aria-current="page"] { background: var(--accent-soft); }
 
 /* Type */
 h1, h2, h3 { line-height: 1.15; letter-spacing: -0.02em; font-weight: 640; }
@@ -106,6 +109,7 @@ code { font-family: var(--mono); font-size: 0.9em; background: var(--sunken); pa
 /* Tables scroll inside their own box, never the page */
 .table { overflow-x: auto; margin: 1.5em 0; border: 1px solid var(--line); border-radius: var(--r-control); background: var(--surface); }
 .prose .table { max-width: none; }
+.table:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; border-radius: var(--r-control); }
 table { border-collapse: collapse; width: 100%; font-size: 0.92rem; line-height: 1.45; }
 th, td { text-align: left; vertical-align: top; padding: 10px 14px; border-bottom: 1px solid var(--line); }
 th { font-size: 0.78rem; font-weight: 620; letter-spacing: 0.04em; text-transform: uppercase; color: var(--label); background: var(--sunken); }
@@ -132,6 +136,13 @@ td:first-child:not(:only-child) { min-width: 0; }
 .pager span { display: block; font-size: 0.8rem; font-weight: 400; color: var(--label); }
 .pager__next { text-align: right; }
 .pager__back { margin: 16px 0 0; font-size: 0.95rem; }
+@media (max-width: 480px) {
+  .pager { grid-template-columns: minmax(0, 1fr); }
+  .pager > span:empty { display: none; }
+  .pager__next { text-align: left; }
+}
+/* Which fields are the paper's and which are the site's: a quiet line under the gate questions */
+.stage__provenance { margin-top: 1.25em; font-size: 0.85rem; color: var(--label); }
 
 /* On this page */
 .toc { max-width: var(--measure); margin: 0 0 32px; padding: 16px 18px; border: 1px solid var(--line); border-radius: var(--r-control); background: var(--surface); }
@@ -152,16 +163,20 @@ td:first-child:not(:only-child) { min-width: 0; }
 .qc__answers input { width: 18px; height: 18px; margin: 0; accent-color: var(--accent); }
 .qc__link { margin: 6px 0 0; font-size: 0.9rem; }
 .qc__result { margin-top: 20px; padding: 16px 18px; border-radius: var(--r-control); background: var(--accent-soft); color: var(--ink); }
-.qc__result:empty { display: none; }
+/* Empty before the first answer: collapsed, but still displayed, so the live region is in the
+   accessibility tree when the first change fills it. Never display: none here. */
+.qc__result:empty { padding: 0; margin: 0; }
 .qc__result-title { margin: 0; font-weight: 600; }
 .qc__result ol { margin: 8px 0 0; }
 
 /* Printable checklists: a box to tick by hand before each item */
 .checklist { list-style: none; padding: 0; }
 .checklist li { position: relative; padding-left: 30px; }
-.checklist li::before { content: ""; position: absolute; left: 0; top: 0.2em; width: 18px; height: 18px; border: 2px solid var(--line-strong); border-radius: 4px; background: var(--surface); }
+.checklist li::before { content: ""; position: absolute; left: 0; top: 0.2em; width: 18px; height: 18px; border: 2px solid var(--faint); border-radius: 4px; background: var(--surface); }
 .gate-stage { break-inside: avoid; }
 .gate-stage .facts { margin: 12px 0; max-width: var(--measure); }
+.checklist__disclaimer { margin: 0 0 1.25em; }
+.checklist__colophon { margin-top: 2.5em; padding-top: 12px; border-top: 1px solid var(--line); font-size: 0.85rem; color: var(--label); }
 
 /* Home */
 .hero { padding: 64px 0 40px; }
@@ -225,10 +240,12 @@ td:first-child:not(:only-child) { min-width: 0; }
 
 /* Print: the page's own content, without the site's chrome, always in the light scheme's roles */
 @media print {
-  :root { --bg: #ffffff; --surface: #ffffff; --sunken: #efeeea; --line: #e2e0db; --line-strong: #cbc8c1; --ink: #21201c; --label: #6b6863; --accent-text: #0c5f54; --warning-soft: #f6e7cd; --warning-text: #8a560b; }
+  :root { --bg: #ffffff; --surface: #ffffff; --sunken: #efeeea; --line: #e2e0db; --line-strong: #cbc8c1; --ink: #21201c; --label: #6b6863; --faint: #736f67; --accent: #0f6f63; --accent-emphasis: #0c5a50; --accent-soft: #d7ece8; --accent-text: #0c5f54; --accent-fg: #ffffff; --warning-soft: #f6e7cd; --warning-text: #8a560b; }
   .skip, .masthead, .footer, .pager, .pager__back, .toc { display: none; }
   body { font-size: 11pt; }
   .page { padding: 0; }
   a { color: inherit; text-decoration: none; }
   .checklist li::before { border-color: var(--ink); }
+  .checklist__disclaimer { border: 1px solid var(--ink); background: none; color: var(--ink); }
+  .checklist__colophon { color: var(--ink); border-top-color: var(--ink); }
 }

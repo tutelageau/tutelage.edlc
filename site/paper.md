@@ -287,8 +287,8 @@ Draft note: entries with links were checked online for this draft; the rest are 
 - Gentner, D. (1983). Structure-mapping: A theoretical framework for analogy. *Cognitive Science, 7*(2), 155–170.
 - IEEE International Consortium for Innovation and Collaboration in Learning Engineering (ICICLE). [*Learning engineering definition*](https://sagroups.ieee.org/icicle/2022-icicle-conference-on-learning-engineering/). IEEE Standards Association.
 - Kim, G., Humble, J., Debois, P., & Willis, J. (2016). *The DevOps handbook*. IT Revolution Press.
-- *National Vocational Education and Training Regulator (Outcome Standards for Registered Training Organisations) Instrument 2025* (Cth), [F2025L00354](https://www.legislation.gov.au/F2025L00354/latest/text). Federal Register of Legislation. Commenced 1 July 2025. Cited as Outcome Standards Instrument (2025).
 - Molenda, M. (2003). [In search of the elusive ADDIE model](https://wikicap.ulb.be/images/5/5f/Molenda_2003.pdf). *Performance Improvement, 42*(5), 34–36.
+- *National Vocational Education and Training Regulator (Outcome Standards for Registered Training Organisations) Instrument 2025* (Cth), [F2025L00354](https://www.legislation.gov.au/F2025L00354/latest/text). Federal Register of Legislation. Commenced 1 July 2025. Cited as Outcome Standards Instrument (2025).
 - Royce, W. W. (1970). Managing the development of large software systems. *Proceedings of IEEE WESCON*, 1–9.
 - Siemens, G. (2013). Learning analytics: The emergence of a discipline. *American Behavioral Scientist, 57*(10), 1380–1400.
 - Wiggins, G., & McTighe, J. (1998). *Understanding by design*. Association for Supervision and Curriculum Development.

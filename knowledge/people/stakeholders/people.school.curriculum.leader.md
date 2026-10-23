@@ -46,3 +46,4 @@ Prints it, reads it on the train, and writes "so what for us?" in the margin.
 ## How this sheet grows
 
 - 2026-10-23: first drawn.
+- 2026-10-23: panel 3 (redesign). To add: senior secondary (Years 11 and 12 run on a different standard and calendar); what the sector's review visit asks a school to show; whether the faculty's existing sign-off habits count as gates in his mind; how the school reports curriculum review to its board today.

@@ -36,3 +36,4 @@ Every statement about regulation can be found, in those words or their plain equ
 
 - 2026-10-23: first drawn.
 - 2026-10-23: panel 1. The binding text is the *National Vocational Education and Training Regulator (Outcome Standards for Registered Training Organisations) Instrument 2025* (F2025L00354), with the Compliance Requirements and Credential Policy instruments. It uses "review" for the pre-use step (Standard 1.3) and "validation" for Standard 1.5. Start from legislation.gov.au; the department pages time out.
+- 2026-10-23: panel 3 (redesign). The as-made ePub path on legislation.gov.au serves the operative text but drops paragraph letters; clause labels need the Word or PDF. Carry the 1.5 personnel rules (collective industry competence, a Credential Policy credential, not solely the designer or deliverer, an independent validator for TAE products after the first cohort). Register the Compliance Requirements and Credential Policy instruments.

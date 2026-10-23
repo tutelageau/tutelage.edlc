@@ -28,7 +28,7 @@
       <nav aria-label="Main">
         <ul class="nav">
           {%- for item in site.nav %}
-          <li><a href="{{ item.url | url }}"{% if item | navCurrent(page.url) %} aria-current="page"{% endif %}>{{ item.label }}</a></li>
+          <li><a href="{{ item.url | url }}"{% set current = item | navCurrent(page.url) %}{% if current %} aria-current="{{ current }}"{% endif %}>{{ item.label }}</a></li>
           {%- endfor %}
         </ul>
       </nav>

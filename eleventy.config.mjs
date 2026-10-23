@@ -42,10 +42,13 @@ export default function (eleventyConfig) {
   // One line of inline Markdown from `_data` (a stage's `happens` and `ask` items), as HTML.
   eleventyConfig.addFilter("mdInline", (text) => md.renderInline(String(text)));
 
-  // Main navigation: an item is current on its own URL and on the URLs it lists in `also`.
-  eleventyConfig.addFilter("navCurrent", (item, url) =>
-    [item.url, ...(item.also || [])].some((prefix) => String(url || "").startsWith(prefix)),
-  );
+  // Main navigation: `aria-current` for an item. "page" on the item's own URL; "true" where the page
+  // sits in the item's section (under its URL, or under a URL it lists in `also`); otherwise nothing.
+  eleventyConfig.addFilter("navCurrent", (item, url) => {
+    url = String(url || "");
+    if (url === item.url) return "page";
+    return [item.url, ...(item.also || [])].some((prefix) => url.startsWith(prefix)) ? "true" : "";
+  });
 
   // "On this page": the page's <h2 id> headings as a list of links, for pages with `toc: true`.
   eleventyConfig.addFilter("toc", (html) =>
@@ -55,12 +58,32 @@ export default function (eleventyConfig) {
     })),
   );
 
-  // Wide tables scroll inside their own box at phone width, never the page.
-  eleventyConfig.addTransform("table-wrap", (content, outputPath) =>
-    outputPath?.endsWith(".html")
-      ? content.replace(/<table>/g, '<div class="table"><table>').replace(/<\/table>/g, "</table></div>")
-      : content,
-  );
+  // Wide tables scroll inside their own box at phone width, never the page. The box is a named,
+  // focusable region so a keyboard user can scroll it: named by the nearest heading above it
+  // (`aria-labelledby` when the heading has an id, else "Table: <heading text>"). A second table under
+  // the same heading is numbered, so no two regions share a name.
+  const plain = (html) => html.replace(/<[^>]+>/g, "").replace(/\s+/g, " ").trim();
+  const attr = (t) => t.replace(/"/g, "&quot;"); // heading text is already HTML-escaped
+  eleventyConfig.addTransform("table-wrap", (content, outputPath) => {
+    if (!outputPath?.endsWith(".html")) return content;
+    let heading = null;
+    let under = 0;
+    return content
+      .replace(/<h([1-6])\b([^>]*)>([\s\S]*?)<\/h\1>|<table>/g, (m, level, attrs, inner) => {
+        if (level) {
+          heading = { id: (attrs.match(/\sid="([^"]+)"/) || [])[1], text: plain(inner) };
+          under = 0;
+          return m;
+        }
+        under++;
+        let name;
+        if (!heading) name = `aria-label="Table${under > 1 ? " " + under : ""}"`;
+        else if (heading.id && under === 1) name = `aria-labelledby="${heading.id}"`;
+        else name = `aria-label="${attr(`Table${under > 1 ? " " + under : ""}: ${heading.text}`)}"`;
+        return `<div class="table" role="region" tabindex="0" ${name}><table>`;
+      })
+      .replace(/<\/table>/g, "</table></div>");
+  });
 
   eleventyConfig.addFilter("isoDate", (d) => new Date(d).toISOString().slice(0, 10));
 

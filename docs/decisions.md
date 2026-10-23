@@ -261,3 +261,27 @@ reader finds exact and an ADDIE claim an instructional designer accepts; *undo* 
 (2) Accept 2 to 5 now and hold 1 until the IPISD scans are read. (3) Defer to the paper's peer review.
 
 **If nobody decides.** The paper stays as written. `/inspiration/` keeps its hedge on test-driven development.
+
+### H-10 · Corrections to the paper from the 0.3.0 panel
+
+**What.** The paper is the owner's text. Record: `knowledge/panels/2026-10-23.redesign.md`.
+
+1. **§2.5, "framed as compliance events, not as stages in a feedback loop."** The VET validation expert notes that
+   the instrument frames both obligations as feeding change: 1.3 ends with review outcomes informing changes to
+   assessment tools, and 1.5 with validation outcomes informing changes to the assessment system (`S-NVR-2025`).
+   *Suggested:* "These obligations supply gates, and both require their outcomes to inform changes. What they do
+   not yet supply is the rest of the loop: versions, delivery signals and a route back into design."
+2. **§2.5, "Every training product must be validated".** The instrument says every training product "on the
+   organisation's scope of registration". *Suggested:* add the qualifier.
+3. **Stage 8's artefact, "Validation record", and §10's "validate".** In VET a validation record is the
+   Standard 1.5 document, while stage 8 holds the Standard 1.3 pre-use review. *Suggested:* "Review record,
+   release identifier" in §5, and "review" in §10's list. This renames a §5 field, so the canon follows.
+4. **§5.1, Plan delivery: "in the way that timeboxes constrain a software iteration".** This is the lead's
+   wording for H-9 item 3, which gave none. Confirm it, or supply the owner's own.
+
+**Options.** (1) Accept all four (recommended; *costs* one editing pass; *gets* a paper a VET auditor finds
+exact). (2) Accept 1, 2 and 4, and keep "validation" at stage 8 with the glossary reconciling the two.
+(3) Defer to the paper's peer review.
+
+**If nobody decides.** The paper stays as written. The site's own pages say "pre-use review" and keep the two
+apart.

@@ -1,10 +1,12 @@
 {#- The quick check (docs/site.story.md §The quick check, ED-20): one question per stage, from `check` in
     `_data/stages.js`. It runs in the reader's browser and sends and stores nothing: no submit target, no
     network call, no storage, no cookies (`tooling/check.mjs` asserts this on the built page). Without
-    script it is a list of the questions, each linking to its stage; the answers and the result appear
-    only when the script runs. -#}
-<form class="qc" id="qc-form" aria-describedby="qc-note" data-loop="{{ '/lifecycle/' | url }}">
+    script it is a list of the questions, each linking to its stage; the answers appear only when the
+    script runs. The result is a polite live region that is in the page, empty and displayed, from the
+    start (never `hidden` or `display: none`), so the first change is announced. -#}
+<form class="qc" id="qc-form" aria-describedby="qc-note qc-scope" data-loop="{{ '/lifecycle/' | url }}">
   <p class="qc__note" id="qc-note">A reading guide, not a measure of anyone's practice. Nothing you choose leaves this page.</p>
+  <p class="qc__note" id="qc-scope">If someone else runs a stage, answer for the program as you know it, or leave it.</p>
   {%- for s in stages %}
   <fieldset class="qc__item" data-stage="{{ s.n }}" data-name="{{ s.name }}" data-href="{{ s.url | url }}">
     <legend><span class="qc__num">Stage {{ s.n }}</span> {{ s.check }}</legend>
@@ -16,7 +18,7 @@
     <p class="qc__link"><a href="{{ s.url | url }}">Read stage {{ s.n }}, {{ s.name }}</a></p>
   </fieldset>
   {%- endfor %}
-  <div class="qc__result" id="qc-result" role="status" aria-live="polite" hidden></div>
+  <div class="qc__result" id="qc-result" role="status" aria-live="polite"></div>
 </form>
 {#- The blank line below keeps the script its own HTML block when this partial is included in a Markdown
     page; without it, Markdown wraps the script's blank-line-separated parts in <p> and it breaks. #}
@@ -30,7 +32,6 @@
   items.forEach(function (item) {
     item.querySelector(".qc__answers").hidden = false;
   });
-  result.hidden = false;
   form.addEventListener("submit", function (event) {
     event.preventDefault();
   });

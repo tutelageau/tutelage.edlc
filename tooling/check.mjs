@@ -6,7 +6,10 @@
 // redirect page, a difference between the paper's §5 stage table and `stages.js` that is not
 // allowlisted with a reason (P-58), a stage page that restates or fails to render its stages.js facts
 // and guidance, a gate checklist missing a stage's gate or questions, a quick check (/start/) that lacks
-// a stage's question or could send or store anything (ED-20), an unpushed commit whose author is not a
+// a stage's question or could send or store anything (ED-20) or whose live region is hidden before the
+// first answer (F1), a gate checklist without its not-a-compliance-tool line or printed attribution
+// (ED-27), a stage page without its provenance line or with two "Back to the loop" links, a table not
+// in a named focusable region (F2), a wrong aria-current, an unpushed commit whose author is not a
 // GitHub noreply address (ED-18), and any term
 // on the public-safety list (in the built pages and in the repo's own files) or an email address on a
 // page (docs/content.standards.md §Public safety). Bare "Build" is exempt from the retired-name scan:
@@ -100,6 +103,25 @@ for (const file of pages) {
     seenIds.add(m[1]);
   }
   for (const m of html.matchAll(/<img\b[^>]*>/g)) if (!/\salt=/.test(m[0])) problems.push(`${url}: <img> without alt`);
+  // Accessibility F2: every table sits in a named, focusable region (it may scroll), and its name resolves.
+  for (const m of html.matchAll(/<table\b/g)) {
+    const before = html.slice(Math.max(0, m.index - 300), m.index);
+    const wrap = before.match(/<div class="table"[^>]*>$/);
+    if (!wrap) {
+      problems.push(`${url}: a <table> outside the scrolling .table wrapper`);
+      continue;
+    }
+    const w = wrap[0];
+    if (!/\srole="region"/.test(w) || !/\stabindex="0"/.test(w)) problems.push(`${url}: a table wrapper without role="region" and tabindex="0" (F2)`);
+    const by = (w.match(/\saria-labelledby="([^"]+)"/) || [])[1];
+    const label = (w.match(/\saria-label="([^"]+)"/) || [])[1];
+    if (by ? !seenIds.has(by) && !new RegExp(`\\sid="${by}"`).test(html) : !label?.trim()) problems.push(`${url}: a table wrapper without a resolvable accessible name (F2)`);
+  }
+  // aria-current: "page" only on the nav item for this exact page, "true" on its section's item.
+  for (const m of html.matchAll(/<a href="([^"]*)" aria-current="([^"]*)"/g)) {
+    const own = resolve(url, m[1]).target === url;
+    if (m[2] === "page" ? !own : m[2] !== "true" || own) problems.push(`${url}: aria-current="${m[2]}" on a link to ${m[1]}`);
+  }
 
   for (const run of forbiddenIn(text)) problems.push(`${url}: public-safety term "${run}"`);
   if (EMAIL.test(html)) problems.push(`${url}: an email address in the page`);
@@ -251,6 +273,13 @@ const builtText = (url) => {
   const file = join(OUT, url, "index.html");
   return existsSync(file) ? plainText(readFileSync(file, "utf8")) : null;
 };
+const CHECKLIST_DISCLAIMER =
+  "This is a list of questions to bring to a review. It is not a compliance tool, and ticking every question does not show that anything meets a standard or replaces pre-use review or validation.";
+const CHECKLIST_ATTRIBUTION = "Education Development Lifecycle (EDLC), edlc.tutelage.au, CC BY 4.0";
+const release = JSON.parse(readFileSync("site/_data/release.json", "utf8"));
+// Content design B: every stage page says which of its fields are the paper's and which the site's.
+const STAGE_PROVENANCE =
+  "The purpose, artefact, exit gate and failure come from the paper's stage table. The question, what happens and the gate questions are this site's guidance.";
 for (const s of stages) {
   const srcFile = join("site", "stages", `${s.slug}.md`);
   if (existsSync(srcFile) && /^## (What happens|At the gate, ask)\s*$/m.test(readFileSync(srcFile, "utf8")))
@@ -263,6 +292,9 @@ for (const s of stages) {
   }
   for (const v of [s.failure, s.purpose, s.artefact, s.gate, ...(s.happens || []), ...(s.ask || [])])
     if (!text.includes(mdPlain(v))) problems.push(`${s.url}: does not render "${v}" from stages.js`);
+  if (!text.includes(STAGE_PROVENANCE)) problems.push(`${s.url}: lacks the line saying which fields are the paper's and which the site's`);
+  const loopLinks = (readFileSync(join(OUT, s.url, "index.html"), "utf8").match(/>Back to the loop</g) || []).length;
+  if (loopLinks !== 1) problems.push(`${s.url}: ${loopLinks} "Back to the loop" links, expected 1`);
 }
 {
   const url = "/resources/gate-checklist/";
@@ -272,6 +304,19 @@ for (const s of stages) {
     for (const s of stages)
       for (const v of [s.name, s.artefact, s.gate, ...(s.ask || [])])
         if (!text.includes(mdPlain(v))) problems.push(`${url}: does not render "${v}" (stage ${s.n})`);
+  // ED-27: the checklist says, in its printed body above the first stage, that it is not a compliance
+  // tool; and the printed sheet carries the version and the attribution. Both sit outside the site's
+  // chrome (the masthead and footer do not print).
+  if (text !== null) {
+    const html = readFileSync(join(OUT, url, "index.html"), "utf8");
+    const main = plainText((html.match(/<main\b[\s\S]*<\/main>/) || [""])[0]);
+    const firstStage = main.indexOf(`Stage 1 · ${stages[0].name}`);
+    const at = main.indexOf(CHECKLIST_DISCLAIMER);
+    if (at < 0) problems.push(`${url}: lacks the not-a-compliance-tool line in the page body (ED-27)`);
+    else if (firstStage >= 0 && at > firstStage) problems.push(`${url}: the not-a-compliance-tool line comes after the first stage; it must come before (ED-27)`);
+    if (!main.includes(`Version ${release.version}`) || !main.includes(CHECKLIST_ATTRIBUTION))
+      problems.push(`${url}: the page body lacks the printed "Version ${release.version}" and "${CHECKLIST_ATTRIBUTION}" line (ED-27)`);
+  }
 }
 
 // The quick check (ED-20) on /start/: every stage's question is on the page, and the page sends and
@@ -299,6 +344,37 @@ for (const s of stages) {
       [/<form\b[^>]*\b(?:action|method)=/i, "a form that submits somewhere"],
     ];
     for (const [re, what] of SENDS_OR_STORES) if (re.test(html)) problems.push(`/start/: the quick check page uses ${what}; it must send and store nothing (ED-20)`);
+    // Reviewer 14: the quick check's own script (the one that reads #qc-form) has no other way out:
+    // no image beacon, no src assignment, no navigation, no form submission, no socket or request.
+    const qcScripts = [...html.matchAll(/<script>([\s\S]*?)<\/script>/g)].map((m) => m[1]).filter((t) => t.includes("qc-form"));
+    if (qcScripts.length !== 1) problems.push(`/start/: ${qcScripts.length} quick check scripts, expected 1`);
+    const QC_SCRIPT_SENDS = [
+      [/\bnew\s+Image\b/, "new Image"],
+      [/\.src\s*=/, ".src ="],
+      [/\blocation\b/, "location"],
+      [/\.(?:request)?[sS]ubmit\s*\(/, "form.submit"],
+      [/sendBeacon/, "sendBeacon"],
+      [/XMLHttpRequest/, "XMLHttpRequest"],
+      [/WebSocket/, "WebSocket"],
+      [/\bfetch\b/, "fetch"],
+      [/\bimport\s*\(/, "a dynamic import"],
+      [/\bwindow\.open\b/, "window.open"],
+    ];
+    for (const t of qcScripts)
+      for (const [re, what] of QC_SCRIPT_SENDS) if (re.test(t)) problems.push(`/start/: the quick check's script uses ${what}; it must send nothing (ED-20, reviewer 14)`);
+    // Accessibility F1: the result is a live region in the accessibility tree, empty, before the first
+    // answer: rendered without `hidden`, never hidden by the script, never display:none by the CSS.
+    const region = html.match(/<div\b[^>]*\bid="qc-result"[^>]*>/);
+    if (!region) problems.push("/start/: no #qc-result live region");
+    else {
+      if (!/\brole="status"/.test(region[0]) || !/\baria-live="polite"/.test(region[0])) problems.push("/start/: #qc-result is not a polite status region");
+      if (/\shidden\b/.test(region[0])) problems.push("/start/: #qc-result is rendered hidden; a live region must be in the tree before it changes (F1)");
+    }
+    for (const t of qcScripts) if (/result\.(?:hidden|style)\b/.test(t)) problems.push("/start/: the quick check's script hides or restyles #qc-result; it must stay displayed (F1)");
+    const css = readFileSync(join(OUT, "assets", "site.css"), "utf8").replace(/\/\*[\s\S]*?\*\//g, "");
+    for (const m of css.matchAll(/([^{}]*)\{([^{}]*)\}/g))
+      if (/\.qc__result\b/.test(m[1]) && /display\s*:\s*none|visibility\s*:\s*hidden/.test(m[2]))
+        problems.push(`site.css: "${m[1].trim()}" hides the quick check's live region (F1)`);
     // The script must reach the browser whole: Markdown can wrap parts of an inline script in <p>.
     for (const m of html.matchAll(/<script>([\s\S]*?)<\/script>/g)) {
       try {
@@ -337,4 +413,4 @@ if (problems.length) {
   console.error(`check: ${problems.length} problem(s)\n` + problems.map((p) => `  - ${p}`).join("\n"));
   process.exit(1);
 }
-console.log(`check: ${pages.length} pages and ${repoFiles.length} repo files clean (links, anchors, headings, retired stage names and redirects, canon against the paper, stage template, gate checklist, quick check, commit authors, public safety)`);
+console.log(`check: ${pages.length} pages and ${repoFiles.length} repo files clean (links, anchors, headings, table regions, aria-current, retired stage names and redirects, canon against the paper, stage template, gate checklist, quick check, commit authors, public safety)`);

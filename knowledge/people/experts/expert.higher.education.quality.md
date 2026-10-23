@@ -42,3 +42,4 @@ course is stated plainly.
 ## How this sheet grows
 
 - 2026-10-23: first drawn.
+- 2026-10-23: panel 3 (redesign). Canon: HESF 5.3.1 to 5.3.7 in Compilation No. 2 (read); amending instrument F2026L00954 and its staged dates (lead). Errors to catch: a Threshold Standard attributed to a TEQSA note; "registered" for "accredited" courses; periodic review conflated with interim monitoring (5.3.3). The Register's `latest/text` serves headings only; read clauses through the document path.

@@ -42,3 +42,4 @@ Reads the first paragraph and the last. Looks for a number.
 ## How this sheet grows
 
 - 2026-10-23: first drawn.
+- 2026-10-23: panel 3 (redesign). To add: whether he would fund a trial on one program before a budget line, and what pilot size he calls cheap; how he weighs a supersession rebuild against an audit rebuild (his answer turned on it); his quality manager as the person he hands the site to.

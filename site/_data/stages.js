@@ -118,7 +118,7 @@ const stages = [
     ask: [
       "Does each task produce the evidence the matrix says it will?",
       "Would two assessors mark the same response the same way from the guide?",
-      "Is the scenario realistic for the cohort named at Discover?",
+      "Is the scenario realistic for the cohort named at Discover, and are permitted adjustments written down?",
       "Have compliance, pedagogy and subject-matter reviewers signed off? (How formal each sign-off is depends on where you work.)",
     ],
     check: "Do you write the assessment tasks and marking guides before the learning content?",
@@ -183,6 +183,7 @@ const stages = [
     ],
     ask: [
       "Has it been reviewed before use, and did the findings change it?",
+      "Was the review read against the learner profiles from Discover, including access needs?",
       "Can we say, a year from now, exactly which version this cohort received?",
       "Are the known limitations recorded, so they are not rediscovered as complaints?",
     ],

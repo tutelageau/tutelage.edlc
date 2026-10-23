@@ -8,7 +8,7 @@ toc: true
 ---
 ## The gate checklist
 
-[The gate checklist](/resources/gate-checklist/) is the one thing here you can print and use today. It lists every stage's exit gate, what the stage produces, and the questions to ask before passing the gate.
+[The gate checklist](/resources/gate-checklist/) is a list of questions to bring to a review, and you can print it today. It lists every stage's exit gate, what the stage produces, and the questions to ask before passing the gate.
 
 It is generated from the same stage data as every stage page, so it never drifts from them. The gates and what each stage produces come from the paper's stage table (§5); "At the gate, ask" is this site's own guidance.
 

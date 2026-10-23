@@ -41,15 +41,20 @@ layout: layouts/base.njk
       <li>{{ item | mdInline | safe }}</li>
       {%- endfor %}
     </ul>
+    <p class="stage__provenance">The purpose, artefact, exit gate and failure come from the paper's stage table. The question, what happens and the gate questions are this site's guidance.</p>
     {%- if body[1] | trim %}
 
     {{ body[1] | safe }}
     {%- endif %}
   </div>
 
+  {#- Stage 10's next step is the loop itself, so it gets the one "Back to the loop" link, in the pager;
+      the other stages carry it on its own line beneath. -#}
   <nav class="pager" aria-label="Stages">
     {% if prev %}<a href="{{ prev.url | url }}"><span>Previous · stage {{ prev.n }}</span>{{ prev.name }}</a>{% else %}<span></span>{% endif %}
     {% if s.n < 10 %}<a class="pager__next" href="{{ next.url | url }}"><span>Next · stage {{ next.n }}</span>{{ next.name }}</a>{% else %}<a class="pager__next" href="{{ '/lifecycle/' | url }}"><span>The loop returns</span>Back to the loop</a>{% endif %}
   </nav>
+  {%- if s.n < 10 %}
   <p class="pager__back"><a href="{{ '/lifecycle/' | url }}">Back to the loop</a></p>
+  {%- endif %}
 </article>

@@ -42,3 +42,4 @@ yet known.
 
 - 2026-10-23: first drawn. Guards the story-led redesign (ED-09).
 - 2026-10-23: panel 2 (stage rename). Add under "What they check": what a moved page owes the reader who followed the old link (both names, the reason in a sentence, a way on, a way back), and how long a "formerly" cue stays visible. Read `/changes/` before the redirects.
+- 2026-10-23: panel 3 (redesign). Add under "What they check": a page built to print carries its own caveats, because print hides the chrome; a reader-facing mark of which parts of a templated page are canon and which are guidance. Add under "Errors they catch": the same link twice in a row; a card that names a destination but is not a link.

@@ -27,3 +27,4 @@ A reader using a screen reader on a phone can learn the whole model from the sit
 ## How this sheet grows
 
 - 2026-10-23: first drawn.
+- 2026-10-23: panel 3 (redesign). Add the WCAG 2.2 additions (2.4.11 focus appearance, 2.5.8 target size, 3.3.7 redundant entry), live regions and dynamic content, and printed output. Add "the model's gates, stage by stage" as a UDL check. A contrast check in `tooling/check.mjs` would replace hand calculation.
