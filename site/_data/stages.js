@@ -66,7 +66,7 @@ const stages = [
     name: "Develop",
     formerly: { name: "Build", slug: "build" },
     question: "What does a learner need to succeed at those assessments?",
-    purpose: "Write the learning content to the assessments.",
+    purpose: "Develop the learning content to the assessments.",
     artefact: "Learning materials and activities",
     gate: "Accuracy and quality review",
     failure: "Inaccurate or unreadable materials",

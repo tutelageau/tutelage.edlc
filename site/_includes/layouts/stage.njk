@@ -10,7 +10,7 @@ layout: layouts/base.njk
     <h1>{{ s.name }}</h1>
     <p class="lede">{{ s.question }}</p>
     {%- if s.formerly %}
-    <p class="page__formerly">Called {{ s.formerly.name }} in 0.1.0.</p>
+    <p class="page__formerly">Called {{ s.formerly.name }} in <a href="{{ '/changes/' | url }}">version 0.1.0</a>.</p>
     {%- endif %}
   </header>
 

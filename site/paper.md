@@ -250,7 +250,7 @@ The EDLC is a proposal, and its claims need testing. Each proposed study below t
 
 Education already knows how to design learning well; what it lacks is the habit of running and improving a program as continuously as it was designed. The Education Development Lifecycle brings together established instructional design practice and the operational disciplines of modern software engineering in one ten-stage loop.
 
-Its design and release half formalises what experienced practitioners already do. Discover, specify, map, outline, design the assessment first, develop the materials, plan delivery, and validate. Its operate half proposes what few institutions yet do: release versions, observe how programs perform, treat complaints and appeals as defect reports, measure curriculum debt, and route what is learned back into design.
+Its design and release half formalises what experienced practitioners already do: specify, map, outline, write the assessment first, develop, plan delivery, and validate. Its operate half proposes what few institutions yet do: release versions, observe how programs perform, treat complaints and appeals as defect reports, measure curriculum debt, and route what is learned back into design.
 
 The analogy has limits, because learners are people and not systems, and those limits are built into the model as guardrails. We offer the EDLC as a shared vocabulary and a starting point, and we invite practitioners, researchers, and regulators to test, challenge, and improve it.
 

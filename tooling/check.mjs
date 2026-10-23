@@ -121,7 +121,7 @@ for (const file of repoFiles) {
 // ED-01, ED-13 and ED-16: the stage names retired by ED-13 (and ED-13's interim "Assess first",
 // replaced by ED-16) survive only as parallels on /inspiration/, in the log on /changes/ (ED-17) and on
 // the redirect pages at the old stage URLs (driven by `formerly` in stages.js). A stage page's own
-// "Called <old name> in 0.1.0." line is allowed, once, on that stage's page only.
+// "Called <old name> in version 0.1.0." line is allowed, once, on that stage's page only.
 // The names are whole words and case-sensitive, so ordinary lowercase use ("scaffold the learner") is
 // not caught; "Test-first" / "Test first" is caught in any case, except in "test-first development",
 // the software practice the paper names in its own argument (§1), which is not the stage. Bare "Build" is exempt (panel finding
@@ -149,9 +149,9 @@ const oldNameExempt = new Set(["/inspiration/", "/changes/", ...renamed.map((s) 
 for (const file of pages) {
   const url = urlOf(file);
   if (oldNameExempt.has(url)) continue;
-  let text = scanText(readFileSync(file, "utf8"));
+  let text = scanText(readFileSync(file, "utf8")).replace(/\s+/g, " ");
   const own = stages.find((s) => s.url === url && s.formerly);
-  if (own) text = text.replace(`Called ${own.formerly.name} in 0.1.0.`, " ");
+  if (own) text = text.replace(new RegExp(`Called ${own.formerly.name} in version 0\\.1\\.0\\s*\\.`), " ");
   oldNameHits(relative(".", file), text);
 }
 if (existsSync("README.md")) oldNameHits("README.md", readFileSync("README.md", "utf8"));
@@ -185,13 +185,13 @@ const git = (...args) => execFileSync("git", args, { encoding: "utf8", stdio: ["
 try {
   if (git("rev-parse", "--is-shallow-repository") !== "true") {
     git("rev-parse", "--verify", "--quiet", "origin/main");
-    const bad = git("log", "origin/main..HEAD", "--format=%h %ae")
+    const bad = git("log", "origin/main..HEAD", "--format=%h %ae %ce")
       .split("\n")
       .filter(Boolean)
       .map((line) => line.split(" "))
-      .filter(([, email]) => !/@users\.noreply\.github\.com$/i.test(email))
+      .filter(([, author, committer]) => ![author, committer].every((e) => /@users\.noreply\.github\.com$/i.test(e)))
       .map(([sha]) => sha);
-    if (bad.length) problems.push(`git: ${bad.length} unpushed commit(s) not authored with a noreply address (ED-18): ${bad.join(", ")}`);
+    if (bad.length) problems.push(`git: ${bad.length} unpushed commit(s) whose author or committer is not a noreply address (ED-18, ED-19): ${bad.join(", ")}`);
   }
 } catch {
   // No origin/main, or not a git checkout: nothing to compare against.

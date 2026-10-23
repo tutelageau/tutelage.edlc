@@ -26,6 +26,7 @@ A ruling is changed only by a later ruling that names it.
 | ED-16 | 2026-10-23 | Owner | Amends ED-13 on the 0.2.0 panel's advice: stage 5 is **Assessment first** (the stage designs assessment; "assess first" reads as assessing the learner first) and stage 6 is **Develop** (it covers activities, media and practicals as well as text, and is education's own word for the phase). Record: `knowledge/panels/2026-10-23.stage-rename.md`. |
 | ED-17 | 2026-10-23 | Lead | Carrying ED-13 into the paper also changes two phrases that named retired stages: stages 1 to 8 are "the design and release stages" (was "build"), and §4's return path goes "back into Specify or Map" (was "specification or architecture"). The owner carries both into the source doc. A changes log may name retired stages: `/changes/` joins `/inspiration/` as exempt from the retired-name check. |
 | ED-18 | 2026-10-23 | Owner | Commits to this repo use the owner's GitHub noreply address, never a personal one. Earlier commits keep theirs (no force-push). The check fails on an unpushed commit whose author is not a noreply address. |
+| ED-19 | 2026-10-23 | Lead | Under ED-16, stage 6's purpose follows its name in the paper and the canon: "Develop learning content to the assessments" (P-24's finding applied to the line beneath the name). The paper's §10 walk-through keeps its own shape, renaming only the stages. ED-18's check covers the committer as well as the author. The owner carries the paper wording into the source doc. |
 
 ## Open memos
 

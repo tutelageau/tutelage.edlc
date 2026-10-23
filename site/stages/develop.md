@@ -8,7 +8,7 @@ Develop produces the learning materials, each built to the assessment it prepare
 
 ## What happens
 
-- Produce the materials, activities, media, practicals and resources into the approved skeletons.
+- Fill the approved skeletons with the materials, activities, media, practicals and resources.
 - Keep each content block traced to the task and descriptors it prepares the learner for.
 - Suit the cohort: reading level, examples and access needs from the Discover profiles.
 
