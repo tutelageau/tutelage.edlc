@@ -1,0 +1,29 @@
+---
+layout: layouts/base.njk
+---
+{%- set s = stages | stageByNumber(stage) -%}
+{%- set prev = stages | stageByNumber(s.n - 1) -%}
+{%- set next = stages | stageByNumber(s.n + 1 if s.n < 10 else 2) -%}
+<article class="wrap page">
+  <header class="page__head">
+    <p class="eyebrow">Stage {{ s.n }} of 10 · {{ "Design and release" if s.half == "build" else "Operate and improve" }}</p>
+    <h1>{{ s.name }}</h1>
+    <p class="lede">{{ s.question }}</p>
+  </header>
+
+  <dl class="facts">
+    <div><dt>Purpose</dt><dd>{{ s.purpose }}</dd></div>
+    <div><dt>Defining artefact</dt><dd>{{ s.artefact }}</dd></div>
+    <div><dt>Exit gate</dt><dd>{{ s.gate }}</dd></div>
+    <div><dt>Failure it prevents</dt><dd>{{ s.failure }}</dd></div>
+  </dl>
+
+  <div class="prose">
+    {{ content | safe }}
+  </div>
+
+  <nav class="pager" aria-label="Stages">
+    {% if prev %}<a href="{{ prev.url | url }}"><span>Previous · stage {{ prev.n }}</span>{{ prev.name }}</a>{% else %}<span></span>{% endif %}
+    <a class="pager__next" href="{{ next.url | url }}"><span>{{ "Next" if s.n < 10 else "The loop returns" }} · stage {{ next.n }}</span>{{ next.name }}</a>
+  </nav>
+</article>

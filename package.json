@@ -1,0 +1,19 @@
+{
+  "name": "tutelage.edlc",
+  "private": true,
+  "description": "The Education Development Lifecycle (EDLC): the public concept site, its knowledge base and the bench that maintains it.",
+  "type": "module",
+  "packageManager": "pnpm@9.15.4",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "dev": "eleventy --serve",
+    "build": "eleventy",
+    "check": "node tooling/check.mjs",
+    "verify": "pnpm build && pnpm check"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "3.1.6"
+  }
+}

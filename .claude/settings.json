@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-settings.json",
+  "permissions": {
+    "deny": [
+      "Bash(git push --force:*)",
+      "Bash(git push -f:*)",
+      "Bash(git add -A:*)",
+      "Bash(git add --all:*)",
+      "Bash(git add .:*)",
+      "Bash(git commit --amend:*)",
+      "Edit(../tutelage.design/**)",
+      "Write(../tutelage.design/**)",
+      "Edit(../tutelage.core/**)",
+      "Write(../tutelage.core/**)",
+      "Edit(../tutelage.assessment.ui/**)",
+      "Write(../tutelage.assessment.ui/**)"
+    ]
+  }
+}

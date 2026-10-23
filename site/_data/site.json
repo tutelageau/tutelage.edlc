@@ -1,0 +1,16 @@
+{
+  "title": "Education Development Lifecycle",
+  "short": "EDLC",
+  "url": "https://edlc.tutelage.au",
+  "description": "A ten-stage, gated, closed-loop model for designing, releasing, delivering and continuously improving learning programs.",
+  "repo": "https://github.com/tutelageau/tutelage.edlc",
+  "issues": "https://github.com/tutelageau/tutelage.edlc/issues",
+  "nav": [
+    { "label": "The lifecycle", "url": "/lifecycle/" },
+    { "label": "Practices", "url": "/practices/" },
+    { "label": "Guardrails", "url": "/guardrails/" },
+    { "label": "Paper", "url": "/paper/" },
+    { "label": "Research", "url": "/research/" },
+    { "label": "Contribute", "url": "/contribute/" }
+  ]
+}

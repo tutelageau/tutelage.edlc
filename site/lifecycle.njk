@@ -1,0 +1,44 @@
+---
+layout: layouts/page.njk
+permalink: /lifecycle/
+title: The lifecycle
+eyebrow: Ten stages, one loop
+lede: Each stage has a purpose, a defining artefact, an exit gate, and a characteristic failure the gate exists to catch.
+---
+{% include "partials/loop.njk" %}
+
+<h2 id="stages">The ten stages</h2>
+
+<table>
+  <thead><tr><th>#</th><th>Stage</th><th>Defining artefact</th><th>Exit gate</th><th>Failure it prevents</th></tr></thead>
+  <tbody>
+  {%- for s in stages %}
+    <tr><td>{{ s.n }}</td><td><a href="{{ s.url | url }}">{{ s.name }}</a></td><td>{{ s.artefact }}</td><td>{{ s.gate }}</td><td>{{ s.failure }}</td></tr>
+  {%- endfor %}
+  </tbody>
+</table>
+
+<h2 id="halves">Two halves</h2>
+
+<p><strong>Design and release (stages 1 to 8)</strong> formalises what experienced practitioners already do: specify, map, scaffold, write the assessment first, build, orchestrate and validate. Each stage adds detail and ends at a review gate, so effort is only invested once the previous stage holds.</p>
+
+<p><strong>Operate and improve (stages 9 and 10)</strong> is what few institutions yet do. Release versions and observe how a program performs with real learners. Treat complaints and appeals as reports of defects in the program, measure curriculum debt, and route what is learned back into design. We argue this half is where the largest unrealised value lies.</p>
+
+<h2 id="gates">What a gate is</h2>
+
+<p>A gate is a review point at the end of a stage that must be passed before effort is invested in the next. Errors are cheapest to fix at the blurriest stage: reviewing a coverage plan costs far less than rewriting a finished assessment. Gates also differ in strictness. A regulated provider may need formal compliance sign-off at stage 5; an independent expert may need only a second reader.</p>
+
+<h2 id="principles">Design principles</h2>
+
+<ol>
+  <li><strong>Specification first.</strong> Every program traces to an explicit learning standard, whether externally regulated or authored in-house.</li>
+  <li><strong>Evidence before content.</strong> Assessment is designed before learning materials, so content exists to enable demonstrated outcomes.</li>
+  <li><strong>Progressive elaboration with gates.</strong> Detail increases stage by stage, and each stage is reviewed before effort is invested in the next.</li>
+  <li><strong>Traceability end to end.</strong> Every assessment task, content block and delivery session traces to the outcome it serves, and the reverse.</li>
+  <li><strong>Versioned releases.</strong> Every cohort receives an identifiable version of the program, so outcomes can be attributed to what was actually delivered.</li>
+  <li><strong>Observe in operation.</strong> Delivery generates evidence about the program, not only about learners.</li>
+  <li><strong>Close the loop.</strong> Findings from delivery and post-use validation become change requests that re-enter the lifecycle.</li>
+  <li><strong>Opinionated about structure, flexible about process.</strong> The stages and artefacts are universal. Terminology, packaging, grading scales and approval workflows are configured per institution and sector.</li>
+</ol>
+
+<p>Five <a href="{{ '/practices/' | url }}">cross-cutting practices</a> run across every stage, and six <a href="{{ '/guardrails/' | url }}">guardrails</a> follow from the fact that learners are people. The words used here are defined in the <a href="{{ '/glossary/' | url }}">glossary</a>. For readers who know software, <a href="{{ '/inspiration/' | url }}">where the idea came from</a> sets out the parallels.</p>

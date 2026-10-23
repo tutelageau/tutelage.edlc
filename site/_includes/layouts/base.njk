@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% if title and page.url != "/" %}{{ title }} · {% endif %}{{ site.title }} ({{ site.short }})</title>
+  <meta name="description" content="{{ description or site.description }}">
+  <link rel="canonical" href="{{ site.url }}{{ page.url }}">
+  <meta property="og:title" content="{{ title or site.title }}">
+  <meta property="og:description" content="{{ description or site.description }}">
+  <meta property="og:url" content="{{ site.url }}{{ page.url }}">
+  <meta property="og:type" content="website">
+  <meta name="color-scheme" content="light dark">
+  <link rel="icon" href="{{ '/assets/mark.svg' | url }}" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400..700&family=Spline+Sans+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="{{ '/assets/site.css' | url }}">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="masthead">
+    <div class="wrap masthead__row">
+      <a class="brand" href="{{ '/' | url }}">
+        <img src="{{ '/assets/mark.svg' | url }}" alt="" width="24" height="24">
+        <span><strong>{{ site.short }}</strong> <span class="brand__long">Education Development Lifecycle</span></span>
+      </a>
+      <nav aria-label="Main">
+        <ul class="nav">
+          {%- for item in site.nav %}
+          <li><a href="{{ item.url | url }}"{% if page.url.startsWith(item.url) %} aria-current="page"{% endif %}>{{ item.label }}</a></li>
+          {%- endfor %}
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <main id="main">
+    {{ content | safe }}
+  </main>
+  <footer class="footer">
+    <div class="wrap footer__row">
+      <p>Version {{ release.version }} · {{ release.status }} · <a href="{{ '/changes/' | url }}">Changes</a> · <a href="{{ '/glossary/' | url }}">Glossary</a> · <a href="{{ '/inspiration/' | url }}">Where the idea came from</a></p>
+      <p><a href="{{ site.issues }}">Comment or raise an issue</a> · <a href="{{ site.repo }}">Source</a> · A <a href="https://tutelage.au">Tutelage</a> initiative</p>
+    </div>
+  </footer>
+</body>
+</html>
